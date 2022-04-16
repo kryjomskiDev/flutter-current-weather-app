@@ -46,4 +46,3 @@ flutter:
 flutter_intl:
   enabled: true
   class_name: Strings
-  main_locale: pl

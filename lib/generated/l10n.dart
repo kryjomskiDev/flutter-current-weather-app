@@ -49,6 +49,16 @@ class Strings {
   static Strings? maybeOf(BuildContext context) {
     return Localizations.of<Strings>(context, Strings);
   }
+
+  /// `Hello!`
+  String get hello {
+    return Intl.message(
+      'Hello!',
+      name: 'hello',
+      desc: '',
+      args: [],
+    );
+  }
 }
 
 class AppLocalizationDelegate extends LocalizationsDelegate<Strings> {
@@ -56,6 +66,7 @@ class AppLocalizationDelegate extends LocalizationsDelegate<Strings> {
 
   List<Locale> get supportedLocales {
     return const <Locale>[
+      Locale.fromSubtags(languageCode: 'en'),
       Locale.fromSubtags(languageCode: 'pl'),
     ];
   }
