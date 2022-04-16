@@ -3,6 +3,7 @@ import 'dart:async';
 import 'package:flutter/material.dart';
 import 'package:injectable/injectable.dart';
 import 'package:fimber_io/fimber_io.dart';
+import 'package:wheather_app/presentation/router/router.gr.dart';
 
 import 'weather_app.dart';
 
@@ -18,7 +19,9 @@ Future<void>? runMobileApp(String environment) => runZonedGuarded<Future<void>>(
           Fimber.plantTree(DebugTree(useColors: true));
         }
         //configureDependencies(environment);
-        runApp(const WeatherApp());
+        runApp(WeatherApp(
+          mainRouter: MainRouter(),
+        ));
       },
       (err, st) {},
     );

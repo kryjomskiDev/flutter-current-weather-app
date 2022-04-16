@@ -3,21 +3,24 @@ import 'package:flutter_device_type/flutter_device_type.dart';
 import 'package:flutter_localizations/flutter_localizations.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:wheather_app/generated/l10n.dart';
-import 'package:wheather_app/presentation/pages/home_page.dart';
+import 'package:wheather_app/presentation/router/router.gr.dart';
 import 'package:wheather_app/utils/hide_keyboard.dart';
 
 const _tabletSize = Size(750, 1334);
 const _mobileSize = Size(375, 667);
 
 class WeatherApp extends StatelessWidget {
-  const WeatherApp({Key? key}) : super(key: key);
+  final MainRouter mainRouter;
+  const WeatherApp({required this.mainRouter, Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) => _globalUnfocusKeyboard(
         context: context,
         child: ScreenUtilInit(
           designSize: Device.get().isTablet ? _tabletSize : _mobileSize,
-          builder: () => MaterialApp(
+          builder: () => MaterialApp.router(
+            routerDelegate: mainRouter.delegate(),
+            routeInformationParser: mainRouter.defaultRouteParser(),
             localizationsDelegates: const [
               Strings.delegate,
               GlobalMaterialLocalizations.delegate,
@@ -26,7 +29,6 @@ class WeatherApp extends StatelessWidget {
             ],
             debugShowCheckedModeBanner: false,
             supportedLocales: Strings.delegate.supportedLocales,
-            home: const HomePage(),
           ),
         ),
       );
