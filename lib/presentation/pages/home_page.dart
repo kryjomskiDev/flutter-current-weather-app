@@ -13,7 +13,6 @@ class HomePage extends StatelessWidget {
           children: [
             Text(Strings.of(context).hello,
                 style: TextStyle(
-                  color: Colors.blue,
                   fontSize: 30.sp,
                 )),
             SizedBox(
