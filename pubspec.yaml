@@ -23,6 +23,7 @@ dependencies:
   flutter_secure_storage: 5.0.2
   flutter_device_type: 0.4.0
   flutter_screenutil: 5.0.3
+  flutter_svg: 0.23.0+1
   injectable: 1.5.0
   collection: 1.15.0
   freezed: 1.1.0
@@ -42,6 +43,8 @@ dev_dependencies:
 
 flutter:
   uses-material-design: true
+  assets:
+  - assets/images/svg/icons/
  
 flutter_intl:
   enabled: true
