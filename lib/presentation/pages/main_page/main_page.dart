@@ -27,14 +27,6 @@ class _MainPageState extends State<MainPage> {
       ),
     ),
     BottomTab(
-      const SearchRoute(),
-      (context, {required isActive, required onTap}) => _BottomNavigationIcon(
-        iconPath: IconsSvg.search,
-        isActive: isActive,
-        onTap: onTap,
-      ),
-    ),
-    BottomTab(
       const SettingsRoute(),
       (context, {required isActive, required onTap}) => _BottomNavigationIcon(
         iconPath: IconsSvg.settings,
@@ -53,22 +45,38 @@ class _MainPageState extends State<MainPage> {
   }
 
   @override
-  Widget build(BuildContext context) {
-    return Scaffold(
-      body: AutoRouter(
-        key: _routerKey,
-      ),
-      bottomNavigationBar: _BottomNavigationBar(
-          tabs: _bottomTabs,
-          currentIndex: _currentIndex,
-          onSelected: (int index) {
-            _routerKey.currentState?.controller?.replace(_bottomTabs[index].router);
-            setState(() {
-              _currentIndex = index;
-            });
-          }),
-    );
-  }
+  Widget build(BuildContext context) => Scaffold(
+        body: AutoRouter(
+          key: _routerKey,
+        ),
+        floatingActionButton: _FloatingActionButton(
+            currentIndex: _currentIndex,
+            tab: BottomTab(
+              const SearchRoute(),
+              (context, {required isActive, required onTap}) => _BottomNavigationIcon(
+                iconPath: IconsSvg.search,
+                isActive: isActive,
+                onTap: onTap,
+                selectedColor: context.getColors().white,
+              ),
+            ),
+            onSelected: (int index) {
+              _routerKey.currentState?.controller?.replace(const SearchRoute());
+              setState(() {
+                _currentIndex = index;
+              });
+            }),
+        floatingActionButtonLocation: FloatingActionButtonLocation.centerDocked,
+        bottomNavigationBar: _BottomNavigationBar(
+            tabs: _bottomTabs,
+            currentIndex: _currentIndex,
+            onSelected: (int index) {
+              _routerKey.currentState?.controller?.replace(_bottomTabs[index].router);
+              setState(() {
+                _currentIndex = index;
+              });
+            }),
+      );
 }
 
 class _BottomNavigationBar extends StatelessWidget {
@@ -83,21 +91,48 @@ class _BottomNavigationBar extends StatelessWidget {
   final int currentIndex;
 
   @override
-  Widget build(BuildContext context) {
-    final padding = MediaQuery.of(context).padding.bottom;
-    return Material(
-        child: Container(
-      color: context.getColors().mainColor,
-      height: kBottomNavigationBarHeight + padding,
-      child: Row(
-        mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-        children: List.generate(
-          tabs.length,
-          (index) => tabs[index].iconBuilder(context, isActive: currentIndex == index, onTap: () => onSelected(index)),
+  Widget build(BuildContext context) => BottomAppBar(
+      color: context.getColors().white,
+      notchMargin: 10.h,
+      shape: const CircularNotchedRectangle(),
+      child: Container(
+        height: kBottomNavigationBarHeight + MediaQuery.of(context).padding.bottom,
+        padding: EdgeInsets.symmetric(horizontal: 40.w, vertical: 10.h),
+        child: Row(
+          mainAxisAlignment: MainAxisAlignment.spaceBetween,
+          children: List.generate(
+            tabs.length,
+            (index) =>
+                tabs[index].iconBuilder(context, isActive: currentIndex == index, onTap: () => onSelected(index)),
+          ),
         ),
-      ),
-    ));
-  }
+      ));
+}
+
+class _FloatingActionButton extends StatelessWidget {
+  const _FloatingActionButton({
+    required this.tab,
+    required this.currentIndex,
+    required this.onSelected,
+    Key? key,
+  }) : super(key: key);
+  final BottomTab tab;
+  final int currentIndex;
+  final Function(int) onSelected;
+
+  @override
+  Widget build(BuildContext context) => Container(
+        padding: EdgeInsets.all(12.w),
+        decoration: BoxDecoration(
+          shape: BoxShape.circle,
+          color: context.getColors().mainColor,
+        ),
+        child: tab.iconBuilder(
+          context,
+          isActive: currentIndex == 2,
+          onTap: () => onSelected(2),
+        ),
+      );
 }
 
 class _BottomNavigationIcon extends StatelessWidget {
@@ -105,11 +140,13 @@ class _BottomNavigationIcon extends StatelessWidget {
     required this.iconPath,
     required this.isActive,
     required this.onTap,
+    this.selectedColor,
     Key? key,
   }) : super(key: key);
   final String iconPath;
   final bool isActive;
   final VoidCallback onTap;
+  final Color? selectedColor;
 
   @override
   Widget build(BuildContext context) {
@@ -117,8 +154,8 @@ class _BottomNavigationIcon extends StatelessWidget {
       onTap: onTap,
       child: SvgPicture.asset(
         iconPath,
-        color: isActive ? context.getColors().black : context.getColors().white,
-        height: 26.h,
+        color: isActive ? selectedColor ?? context.getColors().mainColor : context.getColors().black,
+        height: 30.h,
       ),
     );
   }
