@@ -10,7 +10,7 @@ abstract class AppColorBase {
 }
 
 class AppStandardColors {
-  static const Color mainColor = Color(0xFFFFF70d);
+  static const Color mainColor = Color(0xFFFFBBBB);
   static const Color bgColor = Color(0xFFF5F5F5);
   static const Color white = Color(0xFFFFFFFF);
   static const Color black = Color(0xFF000000);

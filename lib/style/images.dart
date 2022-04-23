@@ -5,5 +5,9 @@ class IconsSvg {
   static const weatherSun = '${_pathPrefix}ic_weather_sun.svg';
   static const weatherWind = '${_pathPrefix}ic_weather_wind.svg';
 
+  static const location = '${_pathPrefix}location.svg';
+  static const search = '${_pathPrefix}search.svg';
+  static const settings = '${_pathPrefix}settings.svg';
+
   IconsSvg._();
 }
