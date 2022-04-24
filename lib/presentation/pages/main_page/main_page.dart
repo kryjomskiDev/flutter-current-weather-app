@@ -51,6 +51,7 @@ class _MainPageState extends State<MainPage> {
         ),
         floatingActionButton: _FloatingActionButton(
             currentIndex: _currentIndex,
+            tabsLength: _bottomTabs.length,
             tab: BottomTab(
               const SearchRoute(),
               (context, {required isActive, required onTap}) => _BottomNavigationIcon(
@@ -114,11 +115,13 @@ class _FloatingActionButton extends StatelessWidget {
     required this.tab,
     required this.currentIndex,
     required this.onSelected,
+    required this.tabsLength,
     Key? key,
   }) : super(key: key);
   final BottomTab tab;
   final int currentIndex;
   final Function(int) onSelected;
+  final int tabsLength;
 
   @override
   Widget build(BuildContext context) => Container(
@@ -129,8 +132,8 @@ class _FloatingActionButton extends StatelessWidget {
         ),
         child: tab.iconBuilder(
           context,
-          isActive: currentIndex == 2,
-          onTap: () => onSelected(2),
+          isActive: currentIndex == tabsLength + 1,
+          onTap: () => onSelected(tabsLength + 1),
         ),
       );
 }
