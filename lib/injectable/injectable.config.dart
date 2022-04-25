@@ -12,8 +12,14 @@ import '../data/api_url_provider.dart' as _i3;
 import '../data/permissions/permissions_service_impl.dart' as _i6;
 import '../domain/permissions/service/permissions_service.dart' as _i5;
 import '../domain/permissions/usecase/get_location_permissions_use_case.dart'
+    as _i8;
+import '../domain/permissions/usecase/is_location_permissions_granted_use_case.dart'
+    as _i9;
+import '../domain/permissions/usecase/is_location_permissions_permanently_denied_use_case.dart'
+    as _i10;
+import '../domain/permissions/usecase/request_location_permissions_use_case.dart'
     as _i7;
-import 'dio/dio_injectable.dart' as _i8;
+import 'dio/dio_injectable.dart' as _i11;
 
 const String _dev = 'dev';
 const String _prod = 'prod';
@@ -30,9 +36,16 @@ _i1.GetIt $initGetIt(_i1.GetIt get,
       registerFor: {_dev, _prod});
   gh.singleton<_i4.Dio>(dioModule.testDio(), registerFor: {_test});
   gh.lazySingleton<_i5.PermissionsService>(() => _i6.PermissionsServiceImpl());
-  gh.factory<_i7.GetLocationPermissionsUseCase>(
-      () => _i7.GetLocationPermissionsUseCase(get<_i5.PermissionsService>()));
+  gh.factory<_i7.RequestLocationPermissionsUseCase>(() =>
+      _i7.RequestLocationPermissionsUseCase(get<_i5.PermissionsService>()));
+  gh.factory<_i8.GetLocationPermissionsUseCase>(
+      () => _i8.GetLocationPermissionsUseCase(get<_i5.PermissionsService>()));
+  gh.factory<_i9.IsLocationPermissionsGrantedUseCase>(() =>
+      _i9.IsLocationPermissionsGrantedUseCase(get<_i5.PermissionsService>()));
+  gh.factory<_i10.IsLocationPermissionsPermanentlyDeniedUseCase>(() =>
+      _i10.IsLocationPermissionsPermanentlyDeniedUseCase(
+          get<_i5.PermissionsService>()));
   return get;
 }
 
-class _$DioModule extends _i8.DioModule {}
+class _$DioModule extends _i11.DioModule {}
