@@ -26,4 +26,7 @@ class StandardTheme extends AppTheme {
 
   @override
   Color white = AppStandardColors.white;
+
+  @override
+  Color cardColor = AppStandardColors.cardColor;
 }
