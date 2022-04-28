@@ -14,6 +14,10 @@
 	<string>6.0</string>
 	<key>CFBundleName</key>
 	<string>wheather_app</string>
+	<key>NSLocationAlwaysAndWhenInUseUsageDescription</key>
+	<string>To get weather for current location</string>
+	<key>NSLocationWhenInUseUsageDescription</key>
+	<string>To get weather for current location</string>
 	<key>CFBundlePackageType</key>
 	<string>APPL</string>
 	<key>CFBundleShortVersionString</key>

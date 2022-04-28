@@ -24,4 +24,7 @@ class PermissionsServiceImpl implements PermissionsService {
     final result = await Permission.locationWhenInUse.request();
     return result;
   }
+
+  @override
+  Future<bool> openSettings() => openAppSettings();
 }

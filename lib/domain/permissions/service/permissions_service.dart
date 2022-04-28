@@ -5,4 +5,5 @@ abstract class PermissionsService {
   Future<PermissionStatus> requestLocationPermissions();
   Future<bool> isLocationPermissionsGranted();
   Future<bool> isLocationPermissionsPermanentlyDenied();
+  Future<bool> openSettings();
 }

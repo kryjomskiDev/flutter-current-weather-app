@@ -17,9 +17,11 @@ import '../domain/permissions/usecase/is_location_permissions_granted_use_case.d
     as _i9;
 import '../domain/permissions/usecase/is_location_permissions_permanently_denied_use_case.dart'
     as _i10;
+import '../domain/permissions/usecase/open_settings_use_case.dart' as _i11;
 import '../domain/permissions/usecase/request_location_permissions_use_case.dart'
     as _i7;
-import 'dio/dio_injectable.dart' as _i11;
+import '../presentation/pages/location/cubit/location_page_cubit.dart' as _i12;
+import 'dio/dio_injectable.dart' as _i13;
 
 const String _dev = 'dev';
 const String _prod = 'prod';
@@ -45,7 +47,14 @@ _i1.GetIt $initGetIt(_i1.GetIt get,
   gh.factory<_i10.IsLocationPermissionsPermanentlyDeniedUseCase>(() =>
       _i10.IsLocationPermissionsPermanentlyDeniedUseCase(
           get<_i5.PermissionsService>()));
+  gh.factory<_i11.OpenSettingsUseCase>(
+      () => _i11.OpenSettingsUseCase(get<_i5.PermissionsService>()));
+  gh.factory<_i12.LocationPageCubit>(() => _i12.LocationPageCubit(
+      get<_i11.OpenSettingsUseCase>(),
+      get<_i7.RequestLocationPermissionsUseCase>(),
+      get<_i9.IsLocationPermissionsGrantedUseCase>(),
+      get<_i10.IsLocationPermissionsPermanentlyDeniedUseCase>()));
   return get;
 }
 
-class _$DioModule extends _i11.DioModule {}
+class _$DioModule extends _i13.DioModule {}
