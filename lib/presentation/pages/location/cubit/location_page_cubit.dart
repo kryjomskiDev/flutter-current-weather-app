@@ -1,8 +1,5 @@
-import 'dart:io';
-
 import 'package:bloc/bloc.dart';
 import 'package:injectable/injectable.dart';
-import 'package:wheather_app/domain/permissions/usecase/get_location_permissions_use_case.dart';
 import 'package:wheather_app/domain/permissions/usecase/is_location_permissions_granted_use_case.dart';
 import 'package:wheather_app/domain/permissions/usecase/is_location_permissions_permanently_denied_use_case.dart';
 import 'package:wheather_app/domain/permissions/usecase/open_settings_use_case.dart';

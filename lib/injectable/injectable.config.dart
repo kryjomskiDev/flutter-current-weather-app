@@ -11,17 +11,15 @@ import 'package:injectable/injectable.dart' as _i2;
 import '../data/api_url_provider.dart' as _i3;
 import '../data/permissions/permissions_service_impl.dart' as _i6;
 import '../domain/permissions/service/permissions_service.dart' as _i5;
-import '../domain/permissions/usecase/get_location_permissions_use_case.dart'
-    as _i8;
 import '../domain/permissions/usecase/is_location_permissions_granted_use_case.dart'
-    as _i9;
+    as _i8;
 import '../domain/permissions/usecase/is_location_permissions_permanently_denied_use_case.dart'
-    as _i10;
-import '../domain/permissions/usecase/open_settings_use_case.dart' as _i11;
+    as _i9;
+import '../domain/permissions/usecase/open_settings_use_case.dart' as _i10;
 import '../domain/permissions/usecase/request_location_permissions_use_case.dart'
     as _i7;
-import '../presentation/pages/location/cubit/location_page_cubit.dart' as _i12;
-import 'dio/dio_injectable.dart' as _i13;
+import '../presentation/pages/location/cubit/location_page_cubit.dart' as _i11;
+import 'dio/dio_injectable.dart' as _i12;
 
 const String _dev = 'dev';
 const String _prod = 'prod';
@@ -40,21 +38,19 @@ _i1.GetIt $initGetIt(_i1.GetIt get,
   gh.lazySingleton<_i5.PermissionsService>(() => _i6.PermissionsServiceImpl());
   gh.factory<_i7.RequestLocationPermissionsUseCase>(() =>
       _i7.RequestLocationPermissionsUseCase(get<_i5.PermissionsService>()));
-  gh.factory<_i8.GetLocationPermissionsUseCase>(
-      () => _i8.GetLocationPermissionsUseCase(get<_i5.PermissionsService>()));
-  gh.factory<_i9.IsLocationPermissionsGrantedUseCase>(() =>
-      _i9.IsLocationPermissionsGrantedUseCase(get<_i5.PermissionsService>()));
-  gh.factory<_i10.IsLocationPermissionsPermanentlyDeniedUseCase>(() =>
-      _i10.IsLocationPermissionsPermanentlyDeniedUseCase(
+  gh.factory<_i8.IsLocationPermissionsGrantedUseCase>(() =>
+      _i8.IsLocationPermissionsGrantedUseCase(get<_i5.PermissionsService>()));
+  gh.factory<_i9.IsLocationPermissionsPermanentlyDeniedUseCase>(() =>
+      _i9.IsLocationPermissionsPermanentlyDeniedUseCase(
           get<_i5.PermissionsService>()));
-  gh.factory<_i11.OpenSettingsUseCase>(
-      () => _i11.OpenSettingsUseCase(get<_i5.PermissionsService>()));
-  gh.factory<_i12.LocationPageCubit>(() => _i12.LocationPageCubit(
-      get<_i11.OpenSettingsUseCase>(),
+  gh.factory<_i10.OpenSettingsUseCase>(
+      () => _i10.OpenSettingsUseCase(get<_i5.PermissionsService>()));
+  gh.factory<_i11.LocationPageCubit>(() => _i11.LocationPageCubit(
+      get<_i10.OpenSettingsUseCase>(),
       get<_i7.RequestLocationPermissionsUseCase>(),
-      get<_i9.IsLocationPermissionsGrantedUseCase>(),
-      get<_i10.IsLocationPermissionsPermanentlyDeniedUseCase>()));
+      get<_i8.IsLocationPermissionsGrantedUseCase>(),
+      get<_i9.IsLocationPermissionsPermanentlyDeniedUseCase>()));
   return get;
 }
 
-class _$DioModule extends _i13.DioModule {}
+class _$DioModule extends _i12.DioModule {}
