@@ -8,7 +8,6 @@ class WeatherDtoToWeatherMapper {
         title: dto.weather.first.main,
         descritpion: dto.weather.first.description,
         icon: dto.weather.first.icon,
-        feelsLike: dto.main.feelsLike,
         temperature: dto.main.temp,
         locationName: dto.name,
       );

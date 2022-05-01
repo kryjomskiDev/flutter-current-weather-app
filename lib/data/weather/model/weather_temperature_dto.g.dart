@@ -10,5 +10,4 @@ WeatherTemperatureDto _$WeatherTemperatureDtoFromJson(
         Map<String, dynamic> json) =>
     WeatherTemperatureDto(
       temp: (json['temp'] as num).toDouble(),
-      feelsLike: (json['feelsLike'] as num).toDouble(),
     );

@@ -6,11 +6,9 @@ part 'weather_temperature_dto.g.dart';
 @JsonSerializable(createToJson: false)
 class WeatherTemperatureDto extends Equatable {
   final double temp;
-  final double feelsLike;
 
   const WeatherTemperatureDto({
     required this.temp,
-    required this.feelsLike,
   });
 
   factory WeatherTemperatureDto.fromJson(Map<String, dynamic> json) => _$WeatherTemperatureDtoFromJson(json);
@@ -18,6 +16,5 @@ class WeatherTemperatureDto extends Equatable {
   @override
   List<Object?> get props => [
         temp,
-        feelsLike,
       ];
 }

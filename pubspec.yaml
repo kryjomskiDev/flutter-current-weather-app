@@ -30,6 +30,7 @@ dependencies:
   freezed: 1.1.0
   equatable: 2.0.3
   retrofit: 3.0.0
+  location: 4.3.0
 
 dev_dependencies:
   flutter_test:
