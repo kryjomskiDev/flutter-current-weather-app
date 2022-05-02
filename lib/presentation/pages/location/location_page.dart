@@ -35,6 +35,12 @@ class LocationPage extends StatelessWidget implements AutoRouteWrapper {
         loading: () => const Center(
           child: CircularProgressIndicator(),
         ),
+        permissionsNotGranted: () => Center(
+          child: WeatherInfoCard(
+            showErrorBody: true,
+            onReloadButtonTap: context.read<LocationPageCubit>().onReloadTap,
+          ),
+        ),
         loaded: (weather) => _LocationPageBody(weather: weather),
         orElse: () => const SizedBox.shrink(),
       );
@@ -55,7 +61,10 @@ class _LocationPageBody extends StatelessWidget {
             textAlign: TextAlign.center,
           ),
           SizedBox(height: 30.h),
-          WeatherInfoCard(weather: weather),
+          WeatherInfoCard(
+            weather: weather,
+            showErrorBody: false,
+          ),
         ],
       );
 }

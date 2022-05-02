@@ -1,15 +1,21 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:flutter_svg/svg.dart';
 import 'package:wheather_app/domain/weather/model/weather.dart';
 import 'package:wheather_app/extensions/extensions_mixin.dart';
 import 'package:wheather_app/style/app_typography.dart';
+import 'package:wheather_app/style/images.dart';
 
 class WeatherInfoCard extends StatelessWidget {
   const WeatherInfoCard({
-    required this.weather,
+    required this.showErrorBody,
+    this.weather,
+    this.onReloadButtonTap,
     Key? key,
   }) : super(key: key);
-  final Weather weather;
+  final Weather? weather;
+  final bool showErrorBody;
+  final VoidCallback? onReloadButtonTap;
 
   @override
   Widget build(BuildContext context) => Container(
@@ -21,8 +27,38 @@ class WeatherInfoCard extends StatelessWidget {
             Radius.circular(10.r),
           ),
         ),
-        child: _CardBody(
-          weather: weather,
+        child: showErrorBody
+            ? _CardErrorBody(
+                onReloadButtonTap: onReloadButtonTap,
+              )
+            : _CardBody(
+                weather: weather!,
+              ),
+      );
+}
+
+class _CardErrorBody extends StatelessWidget {
+  const _CardErrorBody({this.onReloadButtonTap, Key? key}) : super(key: key);
+  final VoidCallback? onReloadButtonTap;
+
+  @override
+  Widget build(BuildContext context) => InkWell(
+        onTap: onReloadButtonTap,
+        child: Column(
+          mainAxisAlignment: MainAxisAlignment.center,
+          children: [
+            Text(
+              'Reload',
+              style: AppTypography.title.copyWith(
+                color: context.getColors().white,
+              ),
+            ),
+            const SizedBox(height: 20),
+            SvgPicture.asset(
+              IconsSvg.reload,
+              height: 31.h,
+            ),
+          ],
         ),
       );
 }
@@ -75,7 +111,7 @@ class _WeatherTile extends StatelessWidget {
           Image.network(iconPath),
           SizedBox(width: 10.w),
           Text(
-            '$temperature °C',
+            '${temperature.round()} °C',
             style: AppTypography.title,
           ),
         ],

@@ -8,6 +8,6 @@ class IconsSvg {
   static const location = '${_pathPrefix}location.svg';
   static const search = '${_pathPrefix}search.svg';
   static const settings = '${_pathPrefix}settings.svg';
-
+  static const reload = '${_pathPrefix}ic_reload.svg';
   IconsSvg._();
 }
