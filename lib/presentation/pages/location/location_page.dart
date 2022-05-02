@@ -2,6 +2,7 @@ import 'package:auto_route/auto_route.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:wheather_app/domain/weather/model/weather.dart';
 import 'package:wheather_app/injectable/injectable.dart';
 import 'package:wheather_app/presentation/pages/location/cubit/location_page_cubit.dart';
 import 'package:wheather_app/presentation/pages/location/cubit/location_page_state.dart';
@@ -24,7 +25,9 @@ class LocationPage extends StatelessWidget implements AutoRouteWrapper {
             horizontal: 15.w,
             vertical: 10.h,
           ),
-          child: BlocBuilder<LocationPageCubit, LocationPageState>(builder: _builder),
+          child: BlocBuilder<LocationPageCubit, LocationPageState>(
+            builder: _builder,
+          ),
         ),
       );
 
@@ -32,25 +35,27 @@ class LocationPage extends StatelessWidget implements AutoRouteWrapper {
         loading: () => const Center(
           child: CircularProgressIndicator(),
         ),
-        loaded: () => const _LocationPageBody(),
+        loaded: (weather) => _LocationPageBody(weather: weather),
         orElse: () => const SizedBox.shrink(),
       );
 }
 
 class _LocationPageBody extends StatelessWidget {
-  const _LocationPageBody({Key? key}) : super(key: key);
+  const _LocationPageBody({required this.weather, Key? key}) : super(key: key);
+
+  final Weather weather;
 
   @override
   Widget build(BuildContext context) => Column(
         mainAxisAlignment: MainAxisAlignment.center,
         children: [
           Text(
-            'Aktualna Pogoda \nW',
+            'Aktualna Pogoda W ${weather.locationName}',
             style: AppTypography.title,
             textAlign: TextAlign.center,
           ),
           SizedBox(height: 30.h),
-          const WeatherInfoCard(),
+          WeatherInfoCard(weather: weather),
         ],
       );
 }

@@ -12,7 +12,6 @@ import 'package:wheather_app/presentation/pages/location/cubit/location_page_sta
 @injectable
 class LocationPageCubit extends Cubit<LocationPageState> {
   late bool _isLocationGranted;
-  late Weather weather;
 
   final OpenSettingsUseCase _openSettingsUseCase;
   final RequestLocationPermissionsUseCase _requestLocationPermissionsUseCase;
@@ -38,8 +37,6 @@ class LocationPageCubit extends Cubit<LocationPageState> {
     } else {
       await getWeather();
     }
-
-    emit(const LocationPageState.loaded());
   }
 
   Future<void> _handleLocationPermissions() async {
@@ -60,7 +57,8 @@ class LocationPageCubit extends Cubit<LocationPageState> {
     final location = await _getLocationDataUseCase.call();
 
     if (location.latitude != null && location.longitude != null) {
-      weather = await _getWeatherByCordsUseCase.call(location.latitude!, location.longitude!);
+      final weather = await _getWeatherByCordsUseCase.call(location.latitude!, location.longitude!);
+      emit(LocationPageState.loaded(weather: weather));
     }
   }
 }

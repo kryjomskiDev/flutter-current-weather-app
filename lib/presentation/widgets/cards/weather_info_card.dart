@@ -1,12 +1,15 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:flutter_svg/svg.dart';
+import 'package:wheather_app/domain/weather/model/weather.dart';
 import 'package:wheather_app/extensions/extensions_mixin.dart';
 import 'package:wheather_app/style/app_typography.dart';
-import 'package:wheather_app/style/images.dart';
 
 class WeatherInfoCard extends StatelessWidget {
-  const WeatherInfoCard({Key? key}) : super(key: key);
+  const WeatherInfoCard({
+    required this.weather,
+    Key? key,
+  }) : super(key: key);
+  final Weather weather;
 
   @override
   Widget build(BuildContext context) => Container(
@@ -18,28 +21,37 @@ class WeatherInfoCard extends StatelessWidget {
             Radius.circular(10.r),
           ),
         ),
-        child: const _CardBody(),
+        child: _CardBody(
+          weather: weather,
+        ),
       );
 }
 
 class _CardBody extends StatelessWidget {
-  const _CardBody({Key? key}) : super(key: key);
+  const _CardBody({
+    required this.weather,
+    Key? key,
+  }) : super(key: key);
+  final Weather weather;
 
   @override
   Widget build(BuildContext context) => Column(
         mainAxisAlignment: MainAxisAlignment.center,
         children: [
           Text(
-            'Warszawa',
+            weather.title,
             style: AppTypography.title.copyWith(
               color: context.getColors().white,
             ),
           ),
           SizedBox(height: 20.h),
-          const _WeatherTile(),
+          _WeatherTile(
+            temperature: weather.temperature,
+            iconPath: weather.icon,
+          ),
           SizedBox(height: 20.h),
           Text(
-            'Słonecznie',
+            weather.descritpion,
             style: AppTypography.subTitle.copyWith(
               color: context.getColors().white,
             ),
@@ -49,19 +61,21 @@ class _CardBody extends StatelessWidget {
 }
 
 class _WeatherTile extends StatelessWidget {
-  const _WeatherTile({Key? key}) : super(key: key);
-
+  const _WeatherTile({
+    required this.temperature,
+    required this.iconPath,
+    Key? key,
+  }) : super(key: key);
+  final double temperature;
+  final String iconPath;
   @override
   Widget build(BuildContext context) => Row(
         mainAxisAlignment: MainAxisAlignment.center,
         children: [
-          SvgPicture.asset(
-            IconsSvg.location,
-            height: 30.h,
-          ),
+          Image.network(iconPath),
           SizedBox(width: 10.w),
           Text(
-            '36C',
+            '$temperature °C',
             style: AppTypography.title,
           ),
         ],

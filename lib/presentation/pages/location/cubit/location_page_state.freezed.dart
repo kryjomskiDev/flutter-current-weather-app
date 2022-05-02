@@ -25,8 +25,14 @@ class _$LocationPageStateTearOff {
     return const LocationPageLoading();
   }
 
-  LocationPageLoaded loaded() {
-    return const LocationPageLoaded();
+  LocationPagePermissionsNotGranted permissionsNotGranted() {
+    return const LocationPagePermissionsNotGranted();
+  }
+
+  LocationPageLoaded loaded({required Weather weather}) {
+    return LocationPageLoaded(
+      weather: weather,
+    );
   }
 }
 
@@ -39,21 +45,24 @@ mixin _$LocationPageState {
   TResult when<TResult extends Object?>({
     required TResult Function() inital,
     required TResult Function() loading,
-    required TResult Function() loaded,
+    required TResult Function() permissionsNotGranted,
+    required TResult Function(Weather weather) loaded,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
     TResult Function()? inital,
     TResult Function()? loading,
-    TResult Function()? loaded,
+    TResult Function()? permissionsNotGranted,
+    TResult Function(Weather weather)? loaded,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? inital,
     TResult Function()? loading,
-    TResult Function()? loaded,
+    TResult Function()? permissionsNotGranted,
+    TResult Function(Weather weather)? loaded,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
@@ -61,6 +70,8 @@ mixin _$LocationPageState {
   TResult map<TResult extends Object?>({
     required TResult Function(_LocationPageInital value) inital,
     required TResult Function(LocationPageLoading value) loading,
+    required TResult Function(LocationPagePermissionsNotGranted value)
+        permissionsNotGranted,
     required TResult Function(LocationPageLoaded value) loaded,
   }) =>
       throw _privateConstructorUsedError;
@@ -68,6 +79,8 @@ mixin _$LocationPageState {
   TResult? mapOrNull<TResult extends Object?>({
     TResult Function(_LocationPageInital value)? inital,
     TResult Function(LocationPageLoading value)? loading,
+    TResult Function(LocationPagePermissionsNotGranted value)?
+        permissionsNotGranted,
     TResult Function(LocationPageLoaded value)? loaded,
   }) =>
       throw _privateConstructorUsedError;
@@ -75,6 +88,8 @@ mixin _$LocationPageState {
   TResult maybeMap<TResult extends Object?>({
     TResult Function(_LocationPageInital value)? inital,
     TResult Function(LocationPageLoading value)? loading,
+    TResult Function(LocationPagePermissionsNotGranted value)?
+        permissionsNotGranted,
     TResult Function(LocationPageLoaded value)? loaded,
     required TResult orElse(),
   }) =>
@@ -141,7 +156,8 @@ class _$_LocationPageInital implements _LocationPageInital {
   TResult when<TResult extends Object?>({
     required TResult Function() inital,
     required TResult Function() loading,
-    required TResult Function() loaded,
+    required TResult Function() permissionsNotGranted,
+    required TResult Function(Weather weather) loaded,
   }) {
     return inital();
   }
@@ -151,7 +167,8 @@ class _$_LocationPageInital implements _LocationPageInital {
   TResult? whenOrNull<TResult extends Object?>({
     TResult Function()? inital,
     TResult Function()? loading,
-    TResult Function()? loaded,
+    TResult Function()? permissionsNotGranted,
+    TResult Function(Weather weather)? loaded,
   }) {
     return inital?.call();
   }
@@ -161,7 +178,8 @@ class _$_LocationPageInital implements _LocationPageInital {
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? inital,
     TResult Function()? loading,
-    TResult Function()? loaded,
+    TResult Function()? permissionsNotGranted,
+    TResult Function(Weather weather)? loaded,
     required TResult orElse(),
   }) {
     if (inital != null) {
@@ -175,6 +193,8 @@ class _$_LocationPageInital implements _LocationPageInital {
   TResult map<TResult extends Object?>({
     required TResult Function(_LocationPageInital value) inital,
     required TResult Function(LocationPageLoading value) loading,
+    required TResult Function(LocationPagePermissionsNotGranted value)
+        permissionsNotGranted,
     required TResult Function(LocationPageLoaded value) loaded,
   }) {
     return inital(this);
@@ -185,6 +205,8 @@ class _$_LocationPageInital implements _LocationPageInital {
   TResult? mapOrNull<TResult extends Object?>({
     TResult Function(_LocationPageInital value)? inital,
     TResult Function(LocationPageLoading value)? loading,
+    TResult Function(LocationPagePermissionsNotGranted value)?
+        permissionsNotGranted,
     TResult Function(LocationPageLoaded value)? loaded,
   }) {
     return inital?.call(this);
@@ -195,6 +217,8 @@ class _$_LocationPageInital implements _LocationPageInital {
   TResult maybeMap<TResult extends Object?>({
     TResult Function(_LocationPageInital value)? inital,
     TResult Function(LocationPageLoading value)? loading,
+    TResult Function(LocationPagePermissionsNotGranted value)?
+        permissionsNotGranted,
     TResult Function(LocationPageLoaded value)? loaded,
     required TResult orElse(),
   }) {
@@ -252,7 +276,8 @@ class _$LocationPageLoading implements LocationPageLoading {
   TResult when<TResult extends Object?>({
     required TResult Function() inital,
     required TResult Function() loading,
-    required TResult Function() loaded,
+    required TResult Function() permissionsNotGranted,
+    required TResult Function(Weather weather) loaded,
   }) {
     return loading();
   }
@@ -262,7 +287,8 @@ class _$LocationPageLoading implements LocationPageLoading {
   TResult? whenOrNull<TResult extends Object?>({
     TResult Function()? inital,
     TResult Function()? loading,
-    TResult Function()? loaded,
+    TResult Function()? permissionsNotGranted,
+    TResult Function(Weather weather)? loaded,
   }) {
     return loading?.call();
   }
@@ -272,7 +298,8 @@ class _$LocationPageLoading implements LocationPageLoading {
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? inital,
     TResult Function()? loading,
-    TResult Function()? loaded,
+    TResult Function()? permissionsNotGranted,
+    TResult Function(Weather weather)? loaded,
     required TResult orElse(),
   }) {
     if (loading != null) {
@@ -286,6 +313,8 @@ class _$LocationPageLoading implements LocationPageLoading {
   TResult map<TResult extends Object?>({
     required TResult Function(_LocationPageInital value) inital,
     required TResult Function(LocationPageLoading value) loading,
+    required TResult Function(LocationPagePermissionsNotGranted value)
+        permissionsNotGranted,
     required TResult Function(LocationPageLoaded value) loaded,
   }) {
     return loading(this);
@@ -296,6 +325,8 @@ class _$LocationPageLoading implements LocationPageLoading {
   TResult? mapOrNull<TResult extends Object?>({
     TResult Function(_LocationPageInital value)? inital,
     TResult Function(LocationPageLoading value)? loading,
+    TResult Function(LocationPagePermissionsNotGranted value)?
+        permissionsNotGranted,
     TResult Function(LocationPageLoaded value)? loaded,
   }) {
     return loading?.call(this);
@@ -306,6 +337,8 @@ class _$LocationPageLoading implements LocationPageLoading {
   TResult maybeMap<TResult extends Object?>({
     TResult Function(_LocationPageInital value)? inital,
     TResult Function(LocationPageLoading value)? loading,
+    TResult Function(LocationPagePermissionsNotGranted value)?
+        permissionsNotGranted,
     TResult Function(LocationPageLoaded value)? loaded,
     required TResult orElse(),
   }) {
@@ -321,10 +354,137 @@ abstract class LocationPageLoading implements LocationPageState {
 }
 
 /// @nodoc
+abstract class $LocationPagePermissionsNotGrantedCopyWith<$Res> {
+  factory $LocationPagePermissionsNotGrantedCopyWith(
+          LocationPagePermissionsNotGranted value,
+          $Res Function(LocationPagePermissionsNotGranted) then) =
+      _$LocationPagePermissionsNotGrantedCopyWithImpl<$Res>;
+}
+
+/// @nodoc
+class _$LocationPagePermissionsNotGrantedCopyWithImpl<$Res>
+    extends _$LocationPageStateCopyWithImpl<$Res>
+    implements $LocationPagePermissionsNotGrantedCopyWith<$Res> {
+  _$LocationPagePermissionsNotGrantedCopyWithImpl(
+      LocationPagePermissionsNotGranted _value,
+      $Res Function(LocationPagePermissionsNotGranted) _then)
+      : super(_value, (v) => _then(v as LocationPagePermissionsNotGranted));
+
+  @override
+  LocationPagePermissionsNotGranted get _value =>
+      super._value as LocationPagePermissionsNotGranted;
+}
+
+/// @nodoc
+
+class _$LocationPagePermissionsNotGranted
+    implements LocationPagePermissionsNotGranted {
+  const _$LocationPagePermissionsNotGranted();
+
+  @override
+  String toString() {
+    return 'LocationPageState.permissionsNotGranted()';
+  }
+
+  @override
+  bool operator ==(dynamic other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is LocationPagePermissionsNotGranted);
+  }
+
+  @override
+  int get hashCode => runtimeType.hashCode;
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function() inital,
+    required TResult Function() loading,
+    required TResult Function() permissionsNotGranted,
+    required TResult Function(Weather weather) loaded,
+  }) {
+    return permissionsNotGranted();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult Function()? inital,
+    TResult Function()? loading,
+    TResult Function()? permissionsNotGranted,
+    TResult Function(Weather weather)? loaded,
+  }) {
+    return permissionsNotGranted?.call();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function()? inital,
+    TResult Function()? loading,
+    TResult Function()? permissionsNotGranted,
+    TResult Function(Weather weather)? loaded,
+    required TResult orElse(),
+  }) {
+    if (permissionsNotGranted != null) {
+      return permissionsNotGranted();
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(_LocationPageInital value) inital,
+    required TResult Function(LocationPageLoading value) loading,
+    required TResult Function(LocationPagePermissionsNotGranted value)
+        permissionsNotGranted,
+    required TResult Function(LocationPageLoaded value) loaded,
+  }) {
+    return permissionsNotGranted(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult Function(_LocationPageInital value)? inital,
+    TResult Function(LocationPageLoading value)? loading,
+    TResult Function(LocationPagePermissionsNotGranted value)?
+        permissionsNotGranted,
+    TResult Function(LocationPageLoaded value)? loaded,
+  }) {
+    return permissionsNotGranted?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(_LocationPageInital value)? inital,
+    TResult Function(LocationPageLoading value)? loading,
+    TResult Function(LocationPagePermissionsNotGranted value)?
+        permissionsNotGranted,
+    TResult Function(LocationPageLoaded value)? loaded,
+    required TResult orElse(),
+  }) {
+    if (permissionsNotGranted != null) {
+      return permissionsNotGranted(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class LocationPagePermissionsNotGranted implements LocationPageState {
+  const factory LocationPagePermissionsNotGranted() =
+      _$LocationPagePermissionsNotGranted;
+}
+
+/// @nodoc
 abstract class $LocationPageLoadedCopyWith<$Res> {
   factory $LocationPageLoadedCopyWith(
           LocationPageLoaded value, $Res Function(LocationPageLoaded) then) =
       _$LocationPageLoadedCopyWithImpl<$Res>;
+  $Res call({Weather weather});
 }
 
 /// @nodoc
@@ -337,35 +497,59 @@ class _$LocationPageLoadedCopyWithImpl<$Res>
 
   @override
   LocationPageLoaded get _value => super._value as LocationPageLoaded;
+
+  @override
+  $Res call({
+    Object? weather = freezed,
+  }) {
+    return _then(LocationPageLoaded(
+      weather: weather == freezed
+          ? _value.weather
+          : weather // ignore: cast_nullable_to_non_nullable
+              as Weather,
+    ));
+  }
 }
 
 /// @nodoc
 
 class _$LocationPageLoaded implements LocationPageLoaded {
-  const _$LocationPageLoaded();
+  const _$LocationPageLoaded({required this.weather});
+
+  @override
+  final Weather weather;
 
   @override
   String toString() {
-    return 'LocationPageState.loaded()';
+    return 'LocationPageState.loaded(weather: $weather)';
   }
 
   @override
   bool operator ==(dynamic other) {
     return identical(this, other) ||
-        (other.runtimeType == runtimeType && other is LocationPageLoaded);
+        (other.runtimeType == runtimeType &&
+            other is LocationPageLoaded &&
+            const DeepCollectionEquality().equals(other.weather, weather));
   }
 
   @override
-  int get hashCode => runtimeType.hashCode;
+  int get hashCode =>
+      Object.hash(runtimeType, const DeepCollectionEquality().hash(weather));
+
+  @JsonKey(ignore: true)
+  @override
+  $LocationPageLoadedCopyWith<LocationPageLoaded> get copyWith =>
+      _$LocationPageLoadedCopyWithImpl<LocationPageLoaded>(this, _$identity);
 
   @override
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function() inital,
     required TResult Function() loading,
-    required TResult Function() loaded,
+    required TResult Function() permissionsNotGranted,
+    required TResult Function(Weather weather) loaded,
   }) {
-    return loaded();
+    return loaded(weather);
   }
 
   @override
@@ -373,9 +557,10 @@ class _$LocationPageLoaded implements LocationPageLoaded {
   TResult? whenOrNull<TResult extends Object?>({
     TResult Function()? inital,
     TResult Function()? loading,
-    TResult Function()? loaded,
+    TResult Function()? permissionsNotGranted,
+    TResult Function(Weather weather)? loaded,
   }) {
-    return loaded?.call();
+    return loaded?.call(weather);
   }
 
   @override
@@ -383,11 +568,12 @@ class _$LocationPageLoaded implements LocationPageLoaded {
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? inital,
     TResult Function()? loading,
-    TResult Function()? loaded,
+    TResult Function()? permissionsNotGranted,
+    TResult Function(Weather weather)? loaded,
     required TResult orElse(),
   }) {
     if (loaded != null) {
-      return loaded();
+      return loaded(weather);
     }
     return orElse();
   }
@@ -397,6 +583,8 @@ class _$LocationPageLoaded implements LocationPageLoaded {
   TResult map<TResult extends Object?>({
     required TResult Function(_LocationPageInital value) inital,
     required TResult Function(LocationPageLoading value) loading,
+    required TResult Function(LocationPagePermissionsNotGranted value)
+        permissionsNotGranted,
     required TResult Function(LocationPageLoaded value) loaded,
   }) {
     return loaded(this);
@@ -407,6 +595,8 @@ class _$LocationPageLoaded implements LocationPageLoaded {
   TResult? mapOrNull<TResult extends Object?>({
     TResult Function(_LocationPageInital value)? inital,
     TResult Function(LocationPageLoading value)? loading,
+    TResult Function(LocationPagePermissionsNotGranted value)?
+        permissionsNotGranted,
     TResult Function(LocationPageLoaded value)? loaded,
   }) {
     return loaded?.call(this);
@@ -417,6 +607,8 @@ class _$LocationPageLoaded implements LocationPageLoaded {
   TResult maybeMap<TResult extends Object?>({
     TResult Function(_LocationPageInital value)? inital,
     TResult Function(LocationPageLoading value)? loading,
+    TResult Function(LocationPagePermissionsNotGranted value)?
+        permissionsNotGranted,
     TResult Function(LocationPageLoaded value)? loaded,
     required TResult orElse(),
   }) {
@@ -428,5 +620,11 @@ class _$LocationPageLoaded implements LocationPageLoaded {
 }
 
 abstract class LocationPageLoaded implements LocationPageState {
-  const factory LocationPageLoaded() = _$LocationPageLoaded;
+  const factory LocationPageLoaded({required Weather weather}) =
+      _$LocationPageLoaded;
+
+  Weather get weather;
+  @JsonKey(ignore: true)
+  $LocationPageLoadedCopyWith<LocationPageLoaded> get copyWith =>
+      throw _privateConstructorUsedError;
 }
