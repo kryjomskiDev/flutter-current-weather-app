@@ -17,5 +17,6 @@ abstract class WeatherApiDataSource {
     @Path('lat') double latitude,
     @Path('lon') double longitude,
     @Path('api_key') String apiKey,
+    @Path('lang') String lang,
   );
 }

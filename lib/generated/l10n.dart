@@ -59,6 +59,26 @@ class Strings {
       args: [],
     );
   }
+
+  /// `Current Weather In {location}`
+  String current_weather(Object location) {
+    return Intl.message(
+      'Current Weather In $location',
+      name: 'current_weather',
+      desc: '',
+      args: [location],
+    );
+  }
+
+  /// `Try again`
+  String get try_again {
+    return Intl.message(
+      'Try again',
+      name: 'try_again',
+      desc: '',
+      args: [],
+    );
+  }
 }
 
 class AppLocalizationDelegate extends LocalizationsDelegate<Strings> {

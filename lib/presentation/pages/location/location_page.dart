@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:wheather_app/domain/weather/model/weather.dart';
+import 'package:wheather_app/generated/l10n.dart';
 import 'package:wheather_app/injectable/injectable.dart';
 import 'package:wheather_app/presentation/pages/location/cubit/location_page_cubit.dart';
 import 'package:wheather_app/presentation/pages/location/cubit/location_page_state.dart';
@@ -56,7 +57,7 @@ class _LocationPageBody extends StatelessWidget {
         mainAxisAlignment: MainAxisAlignment.center,
         children: [
           Text(
-            'Aktualna Pogoda W ${weather.locationName}',
+            Strings.of(context).current_weather(weather.locationName),
             style: AppTypography.title,
             textAlign: TextAlign.center,
           ),

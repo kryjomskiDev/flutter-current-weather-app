@@ -14,7 +14,8 @@ class _WeatherApiDataSource implements WeatherApiDataSource {
   String? baseUrl;
 
   @override
-  Future<WeatherDto> getWeatherByCords(latitude, longitude, apiKey) async {
+  Future<WeatherDto> getWeatherByCords(
+      latitude, longitude, apiKey, lang) async {
     const _extra = <String, dynamic>{};
     final queryParameters = <String, dynamic>{};
     final _headers = <String, dynamic>{};
@@ -23,7 +24,7 @@ class _WeatherApiDataSource implements WeatherApiDataSource {
         WeatherDto>(Options(
             method: 'GET', headers: _headers, extra: _extra)
         .compose(_dio.options,
-            'weather?lat=${latitude}&lon=${longitude}&units=metric&appid=${apiKey}',
+            'weather?lat=${latitude}&lon=${longitude}&units=metric&appid=${apiKey}&lang=${lang}',
             queryParameters: queryParameters, data: _data)
         .copyWith(baseUrl: baseUrl ?? _dio.options.baseUrl)));
     final value = WeatherDto.fromJson(_result.data!);

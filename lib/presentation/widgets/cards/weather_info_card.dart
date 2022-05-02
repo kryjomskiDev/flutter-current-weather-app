@@ -3,6 +3,7 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:wheather_app/domain/weather/model/weather.dart';
 import 'package:wheather_app/extensions/extensions_mixin.dart';
+import 'package:wheather_app/generated/l10n.dart';
 import 'package:wheather_app/style/app_typography.dart';
 import 'package:wheather_app/style/images.dart';
 
@@ -48,7 +49,7 @@ class _CardErrorBody extends StatelessWidget {
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
             Text(
-              'Reload',
+              Strings.of(context).try_again,
               style: AppTypography.title.copyWith(
                 color: context.getColors().white,
               ),

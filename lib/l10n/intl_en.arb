@@ -1,4 +1,6 @@
 {
     "@@locale": "en",
-    "hello": "Hello!"
+    "hello": "Hello!",
+    "current_weather": "Current Weather In {location}",
+    "try_again": "Try again"
 }
