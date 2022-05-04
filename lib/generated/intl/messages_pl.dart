@@ -20,8 +20,12 @@ typedef String MessageIfAbsent(String messageStr, List<dynamic> args);
 class MessageLookup extends MessageLookupByLibrary {
   String get localeName => 'pl';
 
+  static String m0(location) => "Aktualna Pogoda W ${location}";
+
   final messages = _notInlinedMessages(_notInlinedMessages);
   static Map<String, Function> _notInlinedMessages(_) => <String, Function>{
-        "hello": MessageLookupByLibrary.simpleMessage("Cześć!")
+        "current_weather": m0,
+        "hello": MessageLookupByLibrary.simpleMessage("Cześć!"),
+        "try_again": MessageLookupByLibrary.simpleMessage("Spróbuj Ponownie")
       };
 }

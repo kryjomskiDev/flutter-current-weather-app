@@ -8,7 +8,6 @@ import 'package:wheather_app/style/images.dart';
 
 class MainPage extends StatefulWidget {
   const MainPage({Key? key}) : super(key: key);
-
   @override
   State<MainPage> createState() => _MainPageState();
 }
@@ -152,16 +151,15 @@ class _BottomNavigationIcon extends StatelessWidget {
   final Color? selectedColor;
 
   @override
-  Widget build(BuildContext context) {
-    return InkWell(
-      onTap: onTap,
-      child: SvgPicture.asset(
-        iconPath,
-        color: isActive ? selectedColor ?? context.getColors().mainColor : context.getColors().black,
-        height: 30.h,
-      ),
-    );
-  }
+  Widget build(BuildContext context) => InkWell(
+        onTap: onTap,
+        customBorder: const CircleBorder(),
+        child: SvgPicture.asset(
+          iconPath,
+          color: isActive ? selectedColor ?? context.getColors().mainColor : context.getColors().black,
+          height: 30.h,
+        ),
+      );
 }
 
 class BottomTab {

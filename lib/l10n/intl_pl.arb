@@ -1,4 +1,6 @@
 {
     "@@locale": "pl",
-    "hello": "Cześć!"
+    "hello": "Cześć!",
+    "current_weather": "Aktualna Pogoda W {location}",
+    "try_again": "Spróbuj Ponownie"
 }
