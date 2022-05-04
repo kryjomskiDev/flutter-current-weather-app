@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:wheather_app/domain/weather/model/weather.dart';
+import 'package:wheather_app/extensions/extensions_mixin.dart';
 import 'package:wheather_app/generated/l10n.dart';
 import 'package:wheather_app/injectable/injectable.dart';
 import 'package:wheather_app/presentation/pages/location/cubit/location_page_cubit.dart';
@@ -33,8 +34,8 @@ class LocationPage extends StatelessWidget implements AutoRouteWrapper {
       );
 
   Widget _builder(BuildContext context, LocationPageState state) => state.maybeWhen(
-        loading: () => const Center(
-          child: CircularProgressIndicator(),
+        loading: () => Center(
+          child: CircularProgressIndicator(color: context.getColors().mainColor),
         ),
         permissionsNotGranted: () => Center(
           child: WeatherInfoCard(

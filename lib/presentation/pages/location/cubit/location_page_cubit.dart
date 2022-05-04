@@ -1,6 +1,7 @@
 import 'dart:io';
 
 import 'package:bloc/bloc.dart';
+import 'package:fimber_io/fimber_io.dart';
 import 'package:injectable/injectable.dart';
 import 'package:wheather_app/domain/permissions/usecase/is_location_permissions_granted_use_case.dart';
 import 'package:wheather_app/domain/permissions/usecase/is_location_permissions_permanently_denied_use_case.dart';
@@ -72,12 +73,18 @@ class LocationPageCubit extends Cubit<LocationPageState> {
   }
 
   Future<void> getWeather() async {
-    emit(const LocationPageState.loading());
-    final location = await _getLocationDataUseCase.call();
+    try {
+      emit(const LocationPageState.loading());
+      final location = await _getLocationDataUseCase.call();
 
-    if (location.latitude != null && location.longitude != null) {
-      final weather = await _getWeatherByCordsUseCase.call(location.latitude!, location.longitude!);
-      emit(LocationPageState.loaded(weather: weather));
+      if (location.latitude != null && location.longitude != null) {
+        final weather = await _getWeatherByCordsUseCase.call(location.latitude!, location.longitude!);
+        emit(LocationPageState.loaded(weather: weather));
+      }
+    } catch (error, st) {
+      Fimber.e('Error during getting weather', ex: error, stacktrace: st);
+      //TODO: REFACTOR
+      emit(const LocationPageState.permissionsNotGranted());
     }
   }
 }

@@ -1,5 +1,4 @@
 import 'package:auto_route/annotations.dart';
-import 'package:wheather_app/presentation/pages/home_page.dart';
 import 'package:wheather_app/presentation/pages/location/location_page.dart';
 import 'package:wheather_app/presentation/pages/main_page/main_page.dart';
 import 'package:wheather_app/presentation/pages/search/search_page.dart';
