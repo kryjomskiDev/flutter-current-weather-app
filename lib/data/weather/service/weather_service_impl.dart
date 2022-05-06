@@ -22,4 +22,13 @@ class WeatherServiceImpl implements WeatherService {
           Platform.localeName.substring(0, 2),
         ),
       );
+
+  @override
+  Future<Weather> getWeatherByCityName(String cityName) async => _dtoToWeatherMapper(
+        dto: await _weatherApiDataSource.getWeatherByCityName(
+          cityName,
+          '6952e3f3da15fbb4919ae12ef633fce9',
+          Platform.localeName.substring(0, 2),
+        ),
+      );
 }

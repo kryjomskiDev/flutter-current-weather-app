@@ -16,10 +16,10 @@ import '../data/weather/service/location_service_impl.dart' as _i6;
 import '../data/weather/service/weather_service_impl.dart' as _i14;
 import '../domain/permissions/service/permissions_service.dart' as _i7;
 import '../domain/permissions/usecase/is_location_permissions_granted_use_case.dart'
-    as _i17;
-import '../domain/permissions/usecase/is_location_permissions_permanently_denied_use_case.dart'
     as _i18;
-import '../domain/permissions/usecase/open_settings_use_case.dart' as _i19;
+import '../domain/permissions/usecase/is_location_permissions_permanently_denied_use_case.dart'
+    as _i19;
+import '../domain/permissions/usecase/open_settings_use_case.dart' as _i20;
 import '../domain/permissions/usecase/request_location_permission_on_android_use_case.dart'
     as _i9;
 import '../domain/permissions/usecase/request_location_permissions_use_case.dart'
@@ -27,9 +27,12 @@ import '../domain/permissions/usecase/request_location_permissions_use_case.dart
 import '../domain/weather/service/location_service.dart' as _i5;
 import '../domain/weather/service/weather_service.dart' as _i13;
 import '../domain/weather/usecase/get_location_data_use_case.dart' as _i15;
-import '../domain/weather/usecase/get_weather_by_cords_use_case.dart' as _i16;
-import '../presentation/pages/location/cubit/location_page_cubit.dart' as _i20;
-import 'dio/dio_injectable.dart' as _i21;
+import '../domain/weather/usecase/get_weather_by_city_name_use_case.dart'
+    as _i16;
+import '../domain/weather/usecase/get_weather_by_cords_use_case.dart' as _i17;
+import '../presentation/pages/location/cubit/location_page_cubit.dart' as _i22;
+import '../presentation/pages/search/cubit/search_page_cubit.dart' as _i21;
+import 'dio/dio_injectable.dart' as _i23;
 
 const String _dev = 'dev';
 const String _prod = 'prod';
@@ -60,24 +63,33 @@ _i1.GetIt $initGetIt(_i1.GetIt get,
       get<_i11.WeatherApiDataSource>(), get<_i12.WeatherDtoToWeatherMapper>()));
   gh.factory<_i15.GetLocationDataUseCase>(
       () => _i15.GetLocationDataUseCase(get<_i5.LocationService>()));
-  gh.factory<_i16.GetWeatherByCordsUseCase>(
-      () => _i16.GetWeatherByCordsUseCase(get<_i13.WeatherService>()));
-  gh.factory<_i17.IsLocationPermissionsGrantedUseCase>(() =>
-      _i17.IsLocationPermissionsGrantedUseCase(get<_i7.PermissionsService>()));
-  gh.factory<_i18.IsLocationPermissionsPermanentlyDeniedUseCase>(() =>
-      _i18.IsLocationPermissionsPermanentlyDeniedUseCase(
+  gh.factory<_i16.GetWeatherByCityNameUseCase>(
+      () => _i16.GetWeatherByCityNameUseCase(get<_i13.WeatherService>()));
+  gh.factory<_i17.GetWeatherByCordsUseCase>(
+      () => _i17.GetWeatherByCordsUseCase(get<_i13.WeatherService>()));
+  gh.factory<_i18.IsLocationPermissionsGrantedUseCase>(() =>
+      _i18.IsLocationPermissionsGrantedUseCase(get<_i7.PermissionsService>()));
+  gh.factory<_i19.IsLocationPermissionsPermanentlyDeniedUseCase>(() =>
+      _i19.IsLocationPermissionsPermanentlyDeniedUseCase(
           get<_i7.PermissionsService>()));
-  gh.factory<_i19.OpenSettingsUseCase>(
-      () => _i19.OpenSettingsUseCase(get<_i7.PermissionsService>()));
-  gh.factory<_i20.LocationPageCubit>(() => _i20.LocationPageCubit(
-      get<_i19.OpenSettingsUseCase>(),
+  gh.factory<_i20.OpenSettingsUseCase>(
+      () => _i20.OpenSettingsUseCase(get<_i7.PermissionsService>()));
+  gh.factory<_i21.SearchPageCubit>(() => _i21.SearchPageCubit(
+      get<_i16.GetWeatherByCityNameUseCase>(),
+      get<_i20.OpenSettingsUseCase>(),
+      get<_i9.RequestLocationPermissionOnAndroidUseCase>(),
+      get<_i18.IsLocationPermissionsGrantedUseCase>(),
+      get<_i19.IsLocationPermissionsPermanentlyDeniedUseCase>(),
+      get<_i10.RequestLocationPermissionsUseCase>()));
+  gh.factory<_i22.LocationPageCubit>(() => _i22.LocationPageCubit(
+      get<_i20.OpenSettingsUseCase>(),
       get<_i10.RequestLocationPermissionsUseCase>(),
-      get<_i17.IsLocationPermissionsGrantedUseCase>(),
-      get<_i18.IsLocationPermissionsPermanentlyDeniedUseCase>(),
+      get<_i18.IsLocationPermissionsGrantedUseCase>(),
+      get<_i19.IsLocationPermissionsPermanentlyDeniedUseCase>(),
       get<_i15.GetLocationDataUseCase>(),
-      get<_i16.GetWeatherByCordsUseCase>(),
+      get<_i17.GetWeatherByCordsUseCase>(),
       get<_i9.RequestLocationPermissionOnAndroidUseCase>()));
   return get;
 }
 
-class _$DioModule extends _i21.DioModule {}
+class _$DioModule extends _i23.DioModule {}
