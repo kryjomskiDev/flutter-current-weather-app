@@ -10,7 +10,6 @@ import 'package:wheather_app/domain/permissions/usecase/request_location_permiss
 import 'package:wheather_app/domain/weather/model/weather.dart';
 import 'package:wheather_app/domain/weather/usecase/get_weather_by_city_name_use_case.dart';
 import 'package:wheather_app/presentation/pages/search/cubit/search_page_state.dart';
-import 'package:wheather_app/presentation/pages/search/search_page.dart';
 
 @injectable
 class SearchPageCubit extends Cubit<SearchPageState> {

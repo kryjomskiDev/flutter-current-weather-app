@@ -8,7 +8,7 @@ import 'package:wheather_app/domain/permissions/usecase/is_location_permissions_
 import 'package:wheather_app/domain/permissions/usecase/open_settings_use_case.dart';
 import 'package:wheather_app/domain/permissions/usecase/request_location_permission_on_android_use_case.dart';
 import 'package:wheather_app/domain/permissions/usecase/request_location_permissions_use_case.dart';
-import 'package:wheather_app/domain/weather/usecase/get_location_data_use_case.dart';
+import 'package:wheather_app/domain/location/usecase/get_location_data_use_case.dart';
 import 'package:wheather_app/domain/weather/usecase/get_weather_by_cords_use_case.dart';
 import 'package:wheather_app/presentation/pages/location/cubit/location_page_state.dart';
 

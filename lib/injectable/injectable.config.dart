@@ -9,11 +9,13 @@ import 'package:get_it/get_it.dart' as _i1;
 import 'package:injectable/injectable.dart' as _i2;
 
 import '../data/api_url_provider.dart' as _i3;
+import '../data/location/location_service_impl.dart' as _i6;
 import '../data/permissions/permissions_service_impl.dart' as _i8;
 import '../data/weather/data_source/weather_api_data_source.dart' as _i11;
 import '../data/weather/mapper/weather_dto_to_weather_mapper.dart' as _i12;
-import '../data/weather/service/location_service_impl.dart' as _i6;
 import '../data/weather/service/weather_service_impl.dart' as _i14;
+import '../domain/location/service/location_service.dart' as _i5;
+import '../domain/location/usecase/get_location_data_use_case.dart' as _i15;
 import '../domain/permissions/service/permissions_service.dart' as _i7;
 import '../domain/permissions/usecase/is_location_permissions_granted_use_case.dart'
     as _i18;
@@ -24,9 +26,7 @@ import '../domain/permissions/usecase/request_location_permission_on_android_use
     as _i9;
 import '../domain/permissions/usecase/request_location_permissions_use_case.dart'
     as _i10;
-import '../domain/weather/service/location_service.dart' as _i5;
 import '../domain/weather/service/weather_service.dart' as _i13;
-import '../domain/weather/usecase/get_location_data_use_case.dart' as _i15;
 import '../domain/weather/usecase/get_weather_by_city_name_use_case.dart'
     as _i16;
 import '../domain/weather/usecase/get_weather_by_cords_use_case.dart' as _i17;

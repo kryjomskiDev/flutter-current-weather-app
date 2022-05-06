@@ -2,14 +2,12 @@ import 'package:auto_route/auto_route.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:wheather_app/domain/weather/model/weather.dart';
-import 'package:wheather_app/extensions/extensions_mixin.dart';
-import 'package:wheather_app/generated/l10n.dart';
 import 'package:wheather_app/injectable/injectable.dart';
 import 'package:wheather_app/presentation/pages/location/cubit/location_page_cubit.dart';
 import 'package:wheather_app/presentation/pages/location/cubit/location_page_state.dart';
 import 'package:wheather_app/presentation/widgets/cards/weather_info_card.dart';
-import 'package:wheather_app/style/app_typography.dart';
+import 'package:wheather_app/presentation/widgets/page_template/page_body_template.dart';
+import 'package:wheather_app/presentation/widgets/spinner/app_loading_spinner.dart';
 
 class LocationPage extends StatelessWidget implements AutoRouteWrapper {
   const LocationPage({Key? key}) : super(key: key);
@@ -22,7 +20,8 @@ class LocationPage extends StatelessWidget implements AutoRouteWrapper {
 
   @override
   Widget build(BuildContext context) => Scaffold(
-        body: Padding(
+        body: Container(
+          margin: EdgeInsets.only(top: 30.h + kToolbarHeight),
           padding: EdgeInsets.symmetric(
             horizontal: 15.w,
             vertical: 10.h,
@@ -34,39 +33,16 @@ class LocationPage extends StatelessWidget implements AutoRouteWrapper {
       );
 
   Widget _builder(BuildContext context, LocationPageState state) => state.maybeWhen(
-        loading: () => Center(
-          child: CircularProgressIndicator(color: context.getColors().mainColor),
-        ),
-        permissionsNotGranted: () => Center(
-          child: WeatherInfoCard(
-            showErrorBody: true,
-            onReloadButtonTap: context.read<LocationPageCubit>().onReloadTap,
-          ),
-        ),
-        loaded: (weather) => _LocationPageBody(weather: weather),
+        loading: () => const AppLoadingSpinner(),
+        permissionsNotGranted: () => _getPermissionNotGrantedWidget(context),
+        loaded: (weather) => PageBodyTemplate(weather: weather),
         orElse: () => const SizedBox.shrink(),
       );
-}
 
-class _LocationPageBody extends StatelessWidget {
-  const _LocationPageBody({required this.weather, Key? key}) : super(key: key);
-
-  final Weather weather;
-
-  @override
-  Widget build(BuildContext context) => Column(
-        mainAxisAlignment: MainAxisAlignment.center,
-        children: [
-          Text(
-            Strings.of(context).current_weather(weather.locationName),
-            style: AppTypography.title,
-            textAlign: TextAlign.center,
-          ),
-          SizedBox(height: 30.h),
-          WeatherInfoCard(
-            weather: weather,
-            showErrorBody: false,
-          ),
-        ],
+  Widget _getPermissionNotGrantedWidget(BuildContext context) => Center(
+        child: WeatherInfoCard(
+          showErrorBody: true,
+          onReloadButtonTap: context.read<LocationPageCubit>().onReloadTap,
+        ),
       );
 }
