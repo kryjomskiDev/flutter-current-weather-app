@@ -19,4 +19,11 @@ abstract class WeatherApiDataSource {
     @Path('api_key') String apiKey,
     @Path('lang') String lang,
   );
+
+  @GET(NetworkingEndpoints.getWeatherByCityName)
+  Future<WeatherDto> getWeatherByCityName(
+    @Path('name') String cityName,
+    @Path('api_key') String apiKey,
+    @Path('lang') String lang,
+  );
 }

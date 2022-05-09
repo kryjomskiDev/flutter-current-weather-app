@@ -2,5 +2,7 @@
     "@@locale": "pl",
     "hello": "Cześć!",
     "current_weather": "Aktualna Pogoda W {location}",
-    "try_again": "Spróbuj Ponownie"
+    "try_again": "Spróbuj Ponownie",
+    "search_page_tap_on_top_info": "Kliknj u góry, by wyszukać pogodę dla wybranego miasta.",
+    "search_page_error_message": "Wystąpił błąd. Upewnij się, że podałeś prawidłową nazwę miasta."
 }

@@ -54,7 +54,7 @@ class _CardErrorBody extends StatelessWidget {
                 color: context.getColors().white,
               ),
             ),
-            const SizedBox(height: 20),
+            SizedBox(height: 20.h),
             SvgPicture.asset(
               IconsSvg.reload,
               height: 31.h,
@@ -109,7 +109,10 @@ class _WeatherTile extends StatelessWidget {
   Widget build(BuildContext context) => Row(
         mainAxisAlignment: MainAxisAlignment.center,
         children: [
-          Image.network(iconPath),
+          Image.network(
+            iconPath,
+            height: 80.h,
+          ),
           SizedBox(width: 10.w),
           Text(
             '${temperature.round()} °C',

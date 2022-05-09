@@ -1,6 +1,6 @@
 import 'package:injectable/injectable.dart';
 import 'package:location/location.dart';
-import 'package:wheather_app/domain/weather/service/location_service.dart';
+import 'package:wheather_app/domain/location/service/location_service.dart';
 
 @LazySingleton(as: LocationService)
 class LocationServiceImpl implements LocationService {

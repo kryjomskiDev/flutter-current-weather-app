@@ -79,6 +79,26 @@ class Strings {
       args: [],
     );
   }
+
+  /// `Tap on top to search weather for chosen city.`
+  String get search_page_tap_on_top_info {
+    return Intl.message(
+      'Tap on top to search weather for chosen city.',
+      name: 'search_page_tap_on_top_info',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Error occured. Make sure you enter the correct city name.`
+  String get search_page_error_message {
+    return Intl.message(
+      'Error occured. Make sure you enter the correct city name.',
+      name: 'search_page_error_message',
+      desc: '',
+      args: [],
+    );
+  }
 }
 
 class AppLocalizationDelegate extends LocalizationsDelegate<Strings> {
