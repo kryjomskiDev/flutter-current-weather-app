@@ -31,8 +31,8 @@ class _$SearchPageStateTearOff {
     );
   }
 
-  SearchPageStatePermissionsNotGranted permissionsNotGranted() {
-    return const SearchPageStatePermissionsNotGranted();
+  SearchPageStateError error() {
+    return const SearchPageStateError();
   }
 }
 
@@ -46,7 +46,7 @@ mixin _$SearchPageState {
     required TResult Function() initial,
     required TResult Function() loading,
     required TResult Function(Weather? weather) loaded,
-    required TResult Function() permissionsNotGranted,
+    required TResult Function() error,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -54,7 +54,7 @@ mixin _$SearchPageState {
     TResult Function()? initial,
     TResult Function()? loading,
     TResult Function(Weather? weather)? loaded,
-    TResult Function()? permissionsNotGranted,
+    TResult Function()? error,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -62,7 +62,7 @@ mixin _$SearchPageState {
     TResult Function()? initial,
     TResult Function()? loading,
     TResult Function(Weather? weather)? loaded,
-    TResult Function()? permissionsNotGranted,
+    TResult Function()? error,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
@@ -71,8 +71,7 @@ mixin _$SearchPageState {
     required TResult Function(_SearchPageStateInitial value) initial,
     required TResult Function(SearchPageStateLoading value) loading,
     required TResult Function(SearchPageStateLoaded value) loaded,
-    required TResult Function(SearchPageStatePermissionsNotGranted value)
-        permissionsNotGranted,
+    required TResult Function(SearchPageStateError value) error,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -80,8 +79,7 @@ mixin _$SearchPageState {
     TResult Function(_SearchPageStateInitial value)? initial,
     TResult Function(SearchPageStateLoading value)? loading,
     TResult Function(SearchPageStateLoaded value)? loaded,
-    TResult Function(SearchPageStatePermissionsNotGranted value)?
-        permissionsNotGranted,
+    TResult Function(SearchPageStateError value)? error,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -89,8 +87,7 @@ mixin _$SearchPageState {
     TResult Function(_SearchPageStateInitial value)? initial,
     TResult Function(SearchPageStateLoading value)? loading,
     TResult Function(SearchPageStateLoaded value)? loaded,
-    TResult Function(SearchPageStatePermissionsNotGranted value)?
-        permissionsNotGranted,
+    TResult Function(SearchPageStateError value)? error,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
@@ -157,7 +154,7 @@ class _$_SearchPageStateInitial implements _SearchPageStateInitial {
     required TResult Function() initial,
     required TResult Function() loading,
     required TResult Function(Weather? weather) loaded,
-    required TResult Function() permissionsNotGranted,
+    required TResult Function() error,
   }) {
     return initial();
   }
@@ -168,7 +165,7 @@ class _$_SearchPageStateInitial implements _SearchPageStateInitial {
     TResult Function()? initial,
     TResult Function()? loading,
     TResult Function(Weather? weather)? loaded,
-    TResult Function()? permissionsNotGranted,
+    TResult Function()? error,
   }) {
     return initial?.call();
   }
@@ -179,7 +176,7 @@ class _$_SearchPageStateInitial implements _SearchPageStateInitial {
     TResult Function()? initial,
     TResult Function()? loading,
     TResult Function(Weather? weather)? loaded,
-    TResult Function()? permissionsNotGranted,
+    TResult Function()? error,
     required TResult orElse(),
   }) {
     if (initial != null) {
@@ -194,8 +191,7 @@ class _$_SearchPageStateInitial implements _SearchPageStateInitial {
     required TResult Function(_SearchPageStateInitial value) initial,
     required TResult Function(SearchPageStateLoading value) loading,
     required TResult Function(SearchPageStateLoaded value) loaded,
-    required TResult Function(SearchPageStatePermissionsNotGranted value)
-        permissionsNotGranted,
+    required TResult Function(SearchPageStateError value) error,
   }) {
     return initial(this);
   }
@@ -206,8 +202,7 @@ class _$_SearchPageStateInitial implements _SearchPageStateInitial {
     TResult Function(_SearchPageStateInitial value)? initial,
     TResult Function(SearchPageStateLoading value)? loading,
     TResult Function(SearchPageStateLoaded value)? loaded,
-    TResult Function(SearchPageStatePermissionsNotGranted value)?
-        permissionsNotGranted,
+    TResult Function(SearchPageStateError value)? error,
   }) {
     return initial?.call(this);
   }
@@ -218,8 +213,7 @@ class _$_SearchPageStateInitial implements _SearchPageStateInitial {
     TResult Function(_SearchPageStateInitial value)? initial,
     TResult Function(SearchPageStateLoading value)? loading,
     TResult Function(SearchPageStateLoaded value)? loaded,
-    TResult Function(SearchPageStatePermissionsNotGranted value)?
-        permissionsNotGranted,
+    TResult Function(SearchPageStateError value)? error,
     required TResult orElse(),
   }) {
     if (initial != null) {
@@ -277,7 +271,7 @@ class _$SearchPageStateLoading implements SearchPageStateLoading {
     required TResult Function() initial,
     required TResult Function() loading,
     required TResult Function(Weather? weather) loaded,
-    required TResult Function() permissionsNotGranted,
+    required TResult Function() error,
   }) {
     return loading();
   }
@@ -288,7 +282,7 @@ class _$SearchPageStateLoading implements SearchPageStateLoading {
     TResult Function()? initial,
     TResult Function()? loading,
     TResult Function(Weather? weather)? loaded,
-    TResult Function()? permissionsNotGranted,
+    TResult Function()? error,
   }) {
     return loading?.call();
   }
@@ -299,7 +293,7 @@ class _$SearchPageStateLoading implements SearchPageStateLoading {
     TResult Function()? initial,
     TResult Function()? loading,
     TResult Function(Weather? weather)? loaded,
-    TResult Function()? permissionsNotGranted,
+    TResult Function()? error,
     required TResult orElse(),
   }) {
     if (loading != null) {
@@ -314,8 +308,7 @@ class _$SearchPageStateLoading implements SearchPageStateLoading {
     required TResult Function(_SearchPageStateInitial value) initial,
     required TResult Function(SearchPageStateLoading value) loading,
     required TResult Function(SearchPageStateLoaded value) loaded,
-    required TResult Function(SearchPageStatePermissionsNotGranted value)
-        permissionsNotGranted,
+    required TResult Function(SearchPageStateError value) error,
   }) {
     return loading(this);
   }
@@ -326,8 +319,7 @@ class _$SearchPageStateLoading implements SearchPageStateLoading {
     TResult Function(_SearchPageStateInitial value)? initial,
     TResult Function(SearchPageStateLoading value)? loading,
     TResult Function(SearchPageStateLoaded value)? loaded,
-    TResult Function(SearchPageStatePermissionsNotGranted value)?
-        permissionsNotGranted,
+    TResult Function(SearchPageStateError value)? error,
   }) {
     return loading?.call(this);
   }
@@ -338,8 +330,7 @@ class _$SearchPageStateLoading implements SearchPageStateLoading {
     TResult Function(_SearchPageStateInitial value)? initial,
     TResult Function(SearchPageStateLoading value)? loading,
     TResult Function(SearchPageStateLoaded value)? loaded,
-    TResult Function(SearchPageStatePermissionsNotGranted value)?
-        permissionsNotGranted,
+    TResult Function(SearchPageStateError value)? error,
     required TResult orElse(),
   }) {
     if (loading != null) {
@@ -422,7 +413,7 @@ class _$SearchPageStateLoaded implements SearchPageStateLoaded {
     required TResult Function() initial,
     required TResult Function() loading,
     required TResult Function(Weather? weather) loaded,
-    required TResult Function() permissionsNotGranted,
+    required TResult Function() error,
   }) {
     return loaded(weather);
   }
@@ -433,7 +424,7 @@ class _$SearchPageStateLoaded implements SearchPageStateLoaded {
     TResult Function()? initial,
     TResult Function()? loading,
     TResult Function(Weather? weather)? loaded,
-    TResult Function()? permissionsNotGranted,
+    TResult Function()? error,
   }) {
     return loaded?.call(weather);
   }
@@ -444,7 +435,7 @@ class _$SearchPageStateLoaded implements SearchPageStateLoaded {
     TResult Function()? initial,
     TResult Function()? loading,
     TResult Function(Weather? weather)? loaded,
-    TResult Function()? permissionsNotGranted,
+    TResult Function()? error,
     required TResult orElse(),
   }) {
     if (loaded != null) {
@@ -459,8 +450,7 @@ class _$SearchPageStateLoaded implements SearchPageStateLoaded {
     required TResult Function(_SearchPageStateInitial value) initial,
     required TResult Function(SearchPageStateLoading value) loading,
     required TResult Function(SearchPageStateLoaded value) loaded,
-    required TResult Function(SearchPageStatePermissionsNotGranted value)
-        permissionsNotGranted,
+    required TResult Function(SearchPageStateError value) error,
   }) {
     return loaded(this);
   }
@@ -471,8 +461,7 @@ class _$SearchPageStateLoaded implements SearchPageStateLoaded {
     TResult Function(_SearchPageStateInitial value)? initial,
     TResult Function(SearchPageStateLoading value)? loading,
     TResult Function(SearchPageStateLoaded value)? loaded,
-    TResult Function(SearchPageStatePermissionsNotGranted value)?
-        permissionsNotGranted,
+    TResult Function(SearchPageStateError value)? error,
   }) {
     return loaded?.call(this);
   }
@@ -483,8 +472,7 @@ class _$SearchPageStateLoaded implements SearchPageStateLoaded {
     TResult Function(_SearchPageStateInitial value)? initial,
     TResult Function(SearchPageStateLoading value)? loading,
     TResult Function(SearchPageStateLoaded value)? loaded,
-    TResult Function(SearchPageStatePermissionsNotGranted value)?
-        permissionsNotGranted,
+    TResult Function(SearchPageStateError value)? error,
     required TResult orElse(),
   }) {
     if (loaded != null) {
@@ -505,43 +493,38 @@ abstract class SearchPageStateLoaded implements SearchPageState {
 }
 
 /// @nodoc
-abstract class $SearchPageStatePermissionsNotGrantedCopyWith<$Res> {
-  factory $SearchPageStatePermissionsNotGrantedCopyWith(
-          SearchPageStatePermissionsNotGranted value,
-          $Res Function(SearchPageStatePermissionsNotGranted) then) =
-      _$SearchPageStatePermissionsNotGrantedCopyWithImpl<$Res>;
+abstract class $SearchPageStateErrorCopyWith<$Res> {
+  factory $SearchPageStateErrorCopyWith(SearchPageStateError value,
+          $Res Function(SearchPageStateError) then) =
+      _$SearchPageStateErrorCopyWithImpl<$Res>;
 }
 
 /// @nodoc
-class _$SearchPageStatePermissionsNotGrantedCopyWithImpl<$Res>
+class _$SearchPageStateErrorCopyWithImpl<$Res>
     extends _$SearchPageStateCopyWithImpl<$Res>
-    implements $SearchPageStatePermissionsNotGrantedCopyWith<$Res> {
-  _$SearchPageStatePermissionsNotGrantedCopyWithImpl(
-      SearchPageStatePermissionsNotGranted _value,
-      $Res Function(SearchPageStatePermissionsNotGranted) _then)
-      : super(_value, (v) => _then(v as SearchPageStatePermissionsNotGranted));
+    implements $SearchPageStateErrorCopyWith<$Res> {
+  _$SearchPageStateErrorCopyWithImpl(
+      SearchPageStateError _value, $Res Function(SearchPageStateError) _then)
+      : super(_value, (v) => _then(v as SearchPageStateError));
 
   @override
-  SearchPageStatePermissionsNotGranted get _value =>
-      super._value as SearchPageStatePermissionsNotGranted;
+  SearchPageStateError get _value => super._value as SearchPageStateError;
 }
 
 /// @nodoc
 
-class _$SearchPageStatePermissionsNotGranted
-    implements SearchPageStatePermissionsNotGranted {
-  const _$SearchPageStatePermissionsNotGranted();
+class _$SearchPageStateError implements SearchPageStateError {
+  const _$SearchPageStateError();
 
   @override
   String toString() {
-    return 'SearchPageState.permissionsNotGranted()';
+    return 'SearchPageState.error()';
   }
 
   @override
   bool operator ==(dynamic other) {
     return identical(this, other) ||
-        (other.runtimeType == runtimeType &&
-            other is SearchPageStatePermissionsNotGranted);
+        (other.runtimeType == runtimeType && other is SearchPageStateError);
   }
 
   @override
@@ -553,9 +536,9 @@ class _$SearchPageStatePermissionsNotGranted
     required TResult Function() initial,
     required TResult Function() loading,
     required TResult Function(Weather? weather) loaded,
-    required TResult Function() permissionsNotGranted,
+    required TResult Function() error,
   }) {
-    return permissionsNotGranted();
+    return error();
   }
 
   @override
@@ -564,9 +547,9 @@ class _$SearchPageStatePermissionsNotGranted
     TResult Function()? initial,
     TResult Function()? loading,
     TResult Function(Weather? weather)? loaded,
-    TResult Function()? permissionsNotGranted,
+    TResult Function()? error,
   }) {
-    return permissionsNotGranted?.call();
+    return error?.call();
   }
 
   @override
@@ -575,11 +558,11 @@ class _$SearchPageStatePermissionsNotGranted
     TResult Function()? initial,
     TResult Function()? loading,
     TResult Function(Weather? weather)? loaded,
-    TResult Function()? permissionsNotGranted,
+    TResult Function()? error,
     required TResult orElse(),
   }) {
-    if (permissionsNotGranted != null) {
-      return permissionsNotGranted();
+    if (error != null) {
+      return error();
     }
     return orElse();
   }
@@ -590,10 +573,9 @@ class _$SearchPageStatePermissionsNotGranted
     required TResult Function(_SearchPageStateInitial value) initial,
     required TResult Function(SearchPageStateLoading value) loading,
     required TResult Function(SearchPageStateLoaded value) loaded,
-    required TResult Function(SearchPageStatePermissionsNotGranted value)
-        permissionsNotGranted,
+    required TResult Function(SearchPageStateError value) error,
   }) {
-    return permissionsNotGranted(this);
+    return error(this);
   }
 
   @override
@@ -602,10 +584,9 @@ class _$SearchPageStatePermissionsNotGranted
     TResult Function(_SearchPageStateInitial value)? initial,
     TResult Function(SearchPageStateLoading value)? loading,
     TResult Function(SearchPageStateLoaded value)? loaded,
-    TResult Function(SearchPageStatePermissionsNotGranted value)?
-        permissionsNotGranted,
+    TResult Function(SearchPageStateError value)? error,
   }) {
-    return permissionsNotGranted?.call(this);
+    return error?.call(this);
   }
 
   @override
@@ -614,18 +595,16 @@ class _$SearchPageStatePermissionsNotGranted
     TResult Function(_SearchPageStateInitial value)? initial,
     TResult Function(SearchPageStateLoading value)? loading,
     TResult Function(SearchPageStateLoaded value)? loaded,
-    TResult Function(SearchPageStatePermissionsNotGranted value)?
-        permissionsNotGranted,
+    TResult Function(SearchPageStateError value)? error,
     required TResult orElse(),
   }) {
-    if (permissionsNotGranted != null) {
-      return permissionsNotGranted(this);
+    if (error != null) {
+      return error(this);
     }
     return orElse();
   }
 }
 
-abstract class SearchPageStatePermissionsNotGranted implements SearchPageState {
-  const factory SearchPageStatePermissionsNotGranted() =
-      _$SearchPageStatePermissionsNotGranted;
+abstract class SearchPageStateError implements SearchPageState {
+  const factory SearchPageStateError() = _$SearchPageStateError;
 }

@@ -9,5 +9,7 @@ class IconsSvg {
   static const search = '${_pathPrefix}search.svg';
   static const settings = '${_pathPrefix}settings.svg';
   static const reload = '${_pathPrefix}ic_reload.svg';
+  static const searchColor = '${_pathPrefix}ic_search_color.svg';
+  static const error = '${_pathPrefix}ic_error.svg';
   IconsSvg._();
 }

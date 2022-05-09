@@ -35,7 +35,10 @@ class LocationPage extends StatelessWidget implements AutoRouteWrapper {
   Widget _builder(BuildContext context, LocationPageState state) => state.maybeWhen(
         loading: () => const AppLoadingSpinner(),
         permissionsNotGranted: () => _getPermissionNotGrantedWidget(context),
-        loaded: (weather) => PageBodyTemplate(weather: weather),
+        loaded: (weather) => PageBodyTemplate(
+          weather: weather,
+          infoWidget: const SizedBox.shrink(),
+        ),
         orElse: () => const SizedBox.shrink(),
       );
 

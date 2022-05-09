@@ -74,13 +74,8 @@ _i1.GetIt $initGetIt(_i1.GetIt get,
           get<_i7.PermissionsService>()));
   gh.factory<_i20.OpenSettingsUseCase>(
       () => _i20.OpenSettingsUseCase(get<_i7.PermissionsService>()));
-  gh.factory<_i21.SearchPageCubit>(() => _i21.SearchPageCubit(
-      get<_i16.GetWeatherByCityNameUseCase>(),
-      get<_i20.OpenSettingsUseCase>(),
-      get<_i9.RequestLocationPermissionOnAndroidUseCase>(),
-      get<_i18.IsLocationPermissionsGrantedUseCase>(),
-      get<_i19.IsLocationPermissionsPermanentlyDeniedUseCase>(),
-      get<_i10.RequestLocationPermissionsUseCase>()));
+  gh.factory<_i21.SearchPageCubit>(
+      () => _i21.SearchPageCubit(get<_i16.GetWeatherByCityNameUseCase>()));
   gh.factory<_i22.LocationPageCubit>(() => _i22.LocationPageCubit(
       get<_i20.OpenSettingsUseCase>(),
       get<_i10.RequestLocationPermissionsUseCase>(),

@@ -7,5 +7,5 @@ class SearchPageState with _$SearchPageState {
   const factory SearchPageState.initial() = _SearchPageStateInitial;
   const factory SearchPageState.loading() = SearchPageStateLoading;
   const factory SearchPageState.loaded({Weather? weather}) = SearchPageStateLoaded;
-  const factory SearchPageState.permissionsNotGranted() = SearchPageStatePermissionsNotGranted;
+  const factory SearchPageState.error() = SearchPageStateError;
 }

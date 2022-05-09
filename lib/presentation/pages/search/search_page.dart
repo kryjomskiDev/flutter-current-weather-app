@@ -7,8 +7,11 @@ import 'package:wheather_app/injectable/injectable.dart';
 import 'package:wheather_app/presentation/pages/search/cubit/search_page_cubit.dart';
 import 'package:wheather_app/presentation/pages/search/cubit/search_page_state.dart';
 import 'package:wheather_app/presentation/pages/search/widgets/app_text_input.dart';
+import 'package:wheather_app/presentation/pages/search/widgets/error_info.dart';
+import 'package:wheather_app/presentation/pages/search/widgets/search_info.dart';
 import 'package:wheather_app/presentation/widgets/page_template/page_body_template.dart';
 import 'package:wheather_app/presentation/widgets/spinner/app_loading_spinner.dart';
+import 'package:wheather_app/style/app_typography.dart';
 
 class SearchPage extends StatelessWidget implements AutoRouteWrapper {
   const SearchPage({Key? key}) : super(key: key);
@@ -40,7 +43,11 @@ class SearchPage extends StatelessWidget implements AutoRouteWrapper {
 
   Widget _builder(BuildContext context, SearchPageState state) => state.maybeWhen(
         loading: () => const AppLoadingSpinner(),
-        loaded: (weather) => PageBodyTemplate(weather: weather),
+        loaded: (weather) => PageBodyTemplate(
+          weather: weather,
+          infoWidget: const SearchInfo(),
+        ),
         orElse: () => const SizedBox.shrink(),
+        error: () => const ErrorInfo(),
       );
 }

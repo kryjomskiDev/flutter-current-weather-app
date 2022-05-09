@@ -6,9 +6,14 @@ import 'package:wheather_app/presentation/widgets/cards/weather_info_card.dart';
 import 'package:wheather_app/style/app_typography.dart';
 
 class PageBodyTemplate extends StatelessWidget {
-  const PageBodyTemplate({this.weather, Key? key}) : super(key: key);
+  const PageBodyTemplate({
+    required this.infoWidget,
+    this.weather,
+    Key? key,
+  }) : super(key: key);
 
   final Weather? weather;
+  final Widget infoWidget;
 
   @override
   Widget build(BuildContext context) => weather != null
@@ -29,11 +34,5 @@ class PageBodyTemplate extends StatelessWidget {
             ],
           ),
         )
-      : Center(
-          child: Text(
-            'Tap on top to search',
-            style: AppTypography.title,
-            textAlign: TextAlign.center,
-          ),
-        );
+      : infoWidget;
 }

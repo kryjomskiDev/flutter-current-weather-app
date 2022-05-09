@@ -26,6 +26,10 @@ class MessageLookup extends MessageLookupByLibrary {
   static Map<String, Function> _notInlinedMessages(_) => <String, Function>{
         "current_weather": m0,
         "hello": MessageLookupByLibrary.simpleMessage("Cześć!"),
+        "search_page_error_message": MessageLookupByLibrary.simpleMessage(
+            "Wystąpił błąd. Upewnij się, że podałeś prawidłową nazwę miasta."),
+        "search_page_tap_on_top_info": MessageLookupByLibrary.simpleMessage(
+            "Kliknj u góry, by wyszukać pogodę dla wybranego miasta."),
         "try_again": MessageLookupByLibrary.simpleMessage("Spróbuj Ponownie")
       };
 }
