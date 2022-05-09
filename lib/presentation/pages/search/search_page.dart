@@ -11,14 +11,13 @@ import 'package:wheather_app/presentation/pages/search/widgets/error_info.dart';
 import 'package:wheather_app/presentation/pages/search/widgets/search_info.dart';
 import 'package:wheather_app/presentation/widgets/page_template/page_body_template.dart';
 import 'package:wheather_app/presentation/widgets/spinner/app_loading_spinner.dart';
-import 'package:wheather_app/style/app_typography.dart';
 
 class SearchPage extends StatelessWidget implements AutoRouteWrapper {
   const SearchPage({Key? key}) : super(key: key);
 
   @override
   Widget wrappedRoute(BuildContext context) => BlocProvider(
-        create: (_) => getIt<SearchPageCubit>()..init(),
+        create: (_) => getIt<SearchPageCubit>(),
         child: this,
       );
 

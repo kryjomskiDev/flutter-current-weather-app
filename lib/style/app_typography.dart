@@ -17,4 +17,8 @@ class AppTypography {
     height: 1.35,
     leadingDistribution: TextLeadingDistribution.even,
   );
+
+  static final textFieldText = TextStyle(
+    fontSize: 15.sp,
+  );
 }

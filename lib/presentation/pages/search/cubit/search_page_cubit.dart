@@ -11,12 +11,7 @@ class SearchPageCubit extends Cubit<SearchPageState> {
 
   SearchPageCubit(
     this._getWeatherByCityNameUseCase,
-  ) : super(const SearchPageState.initial());
-
-  Future<void> init() async {
-    emit(const SearchPageState.loading());
-    emit(const SearchPageState.loaded());
-  }
+  ) : super(const SearchPageState.loaded());
 
   Future<void> getWeatherByCityName(String cityName) async {
     try {

@@ -17,10 +17,6 @@ final _privateConstructorUsedError = UnsupportedError(
 class _$SearchPageStateTearOff {
   const _$SearchPageStateTearOff();
 
-  _SearchPageStateInitial initial() {
-    return const _SearchPageStateInitial();
-  }
-
   SearchPageStateLoading loading() {
     return const SearchPageStateLoading();
   }
@@ -43,7 +39,6 @@ const $SearchPageState = _$SearchPageStateTearOff();
 mixin _$SearchPageState {
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
-    required TResult Function() initial,
     required TResult Function() loading,
     required TResult Function(Weather? weather) loaded,
     required TResult Function() error,
@@ -51,7 +46,6 @@ mixin _$SearchPageState {
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
-    TResult Function()? initial,
     TResult Function()? loading,
     TResult Function(Weather? weather)? loaded,
     TResult Function()? error,
@@ -59,7 +53,6 @@ mixin _$SearchPageState {
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
-    TResult Function()? initial,
     TResult Function()? loading,
     TResult Function(Weather? weather)? loaded,
     TResult Function()? error,
@@ -68,7 +61,6 @@ mixin _$SearchPageState {
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
-    required TResult Function(_SearchPageStateInitial value) initial,
     required TResult Function(SearchPageStateLoading value) loading,
     required TResult Function(SearchPageStateLoaded value) loaded,
     required TResult Function(SearchPageStateError value) error,
@@ -76,7 +68,6 @@ mixin _$SearchPageState {
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
-    TResult Function(_SearchPageStateInitial value)? initial,
     TResult Function(SearchPageStateLoading value)? loading,
     TResult Function(SearchPageStateLoaded value)? loaded,
     TResult Function(SearchPageStateError value)? error,
@@ -84,7 +75,6 @@ mixin _$SearchPageState {
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
-    TResult Function(_SearchPageStateInitial value)? initial,
     TResult Function(SearchPageStateLoading value)? loading,
     TResult Function(SearchPageStateLoaded value)? loaded,
     TResult Function(SearchPageStateError value)? error,
@@ -108,123 +98,6 @@ class _$SearchPageStateCopyWithImpl<$Res>
   final SearchPageState _value;
   // ignore: unused_field
   final $Res Function(SearchPageState) _then;
-}
-
-/// @nodoc
-abstract class _$SearchPageStateInitialCopyWith<$Res> {
-  factory _$SearchPageStateInitialCopyWith(_SearchPageStateInitial value,
-          $Res Function(_SearchPageStateInitial) then) =
-      __$SearchPageStateInitialCopyWithImpl<$Res>;
-}
-
-/// @nodoc
-class __$SearchPageStateInitialCopyWithImpl<$Res>
-    extends _$SearchPageStateCopyWithImpl<$Res>
-    implements _$SearchPageStateInitialCopyWith<$Res> {
-  __$SearchPageStateInitialCopyWithImpl(_SearchPageStateInitial _value,
-      $Res Function(_SearchPageStateInitial) _then)
-      : super(_value, (v) => _then(v as _SearchPageStateInitial));
-
-  @override
-  _SearchPageStateInitial get _value => super._value as _SearchPageStateInitial;
-}
-
-/// @nodoc
-
-class _$_SearchPageStateInitial implements _SearchPageStateInitial {
-  const _$_SearchPageStateInitial();
-
-  @override
-  String toString() {
-    return 'SearchPageState.initial()';
-  }
-
-  @override
-  bool operator ==(dynamic other) {
-    return identical(this, other) ||
-        (other.runtimeType == runtimeType && other is _SearchPageStateInitial);
-  }
-
-  @override
-  int get hashCode => runtimeType.hashCode;
-
-  @override
-  @optionalTypeArgs
-  TResult when<TResult extends Object?>({
-    required TResult Function() initial,
-    required TResult Function() loading,
-    required TResult Function(Weather? weather) loaded,
-    required TResult Function() error,
-  }) {
-    return initial();
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult? whenOrNull<TResult extends Object?>({
-    TResult Function()? initial,
-    TResult Function()? loading,
-    TResult Function(Weather? weather)? loaded,
-    TResult Function()? error,
-  }) {
-    return initial?.call();
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult maybeWhen<TResult extends Object?>({
-    TResult Function()? initial,
-    TResult Function()? loading,
-    TResult Function(Weather? weather)? loaded,
-    TResult Function()? error,
-    required TResult orElse(),
-  }) {
-    if (initial != null) {
-      return initial();
-    }
-    return orElse();
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult map<TResult extends Object?>({
-    required TResult Function(_SearchPageStateInitial value) initial,
-    required TResult Function(SearchPageStateLoading value) loading,
-    required TResult Function(SearchPageStateLoaded value) loaded,
-    required TResult Function(SearchPageStateError value) error,
-  }) {
-    return initial(this);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult? mapOrNull<TResult extends Object?>({
-    TResult Function(_SearchPageStateInitial value)? initial,
-    TResult Function(SearchPageStateLoading value)? loading,
-    TResult Function(SearchPageStateLoaded value)? loaded,
-    TResult Function(SearchPageStateError value)? error,
-  }) {
-    return initial?.call(this);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult maybeMap<TResult extends Object?>({
-    TResult Function(_SearchPageStateInitial value)? initial,
-    TResult Function(SearchPageStateLoading value)? loading,
-    TResult Function(SearchPageStateLoaded value)? loaded,
-    TResult Function(SearchPageStateError value)? error,
-    required TResult orElse(),
-  }) {
-    if (initial != null) {
-      return initial(this);
-    }
-    return orElse();
-  }
-}
-
-abstract class _SearchPageStateInitial implements SearchPageState {
-  const factory _SearchPageStateInitial() = _$_SearchPageStateInitial;
 }
 
 /// @nodoc
@@ -268,7 +141,6 @@ class _$SearchPageStateLoading implements SearchPageStateLoading {
   @override
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
-    required TResult Function() initial,
     required TResult Function() loading,
     required TResult Function(Weather? weather) loaded,
     required TResult Function() error,
@@ -279,7 +151,6 @@ class _$SearchPageStateLoading implements SearchPageStateLoading {
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
-    TResult Function()? initial,
     TResult Function()? loading,
     TResult Function(Weather? weather)? loaded,
     TResult Function()? error,
@@ -290,7 +161,6 @@ class _$SearchPageStateLoading implements SearchPageStateLoading {
   @override
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
-    TResult Function()? initial,
     TResult Function()? loading,
     TResult Function(Weather? weather)? loaded,
     TResult Function()? error,
@@ -305,7 +175,6 @@ class _$SearchPageStateLoading implements SearchPageStateLoading {
   @override
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
-    required TResult Function(_SearchPageStateInitial value) initial,
     required TResult Function(SearchPageStateLoading value) loading,
     required TResult Function(SearchPageStateLoaded value) loaded,
     required TResult Function(SearchPageStateError value) error,
@@ -316,7 +185,6 @@ class _$SearchPageStateLoading implements SearchPageStateLoading {
   @override
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
-    TResult Function(_SearchPageStateInitial value)? initial,
     TResult Function(SearchPageStateLoading value)? loading,
     TResult Function(SearchPageStateLoaded value)? loaded,
     TResult Function(SearchPageStateError value)? error,
@@ -327,7 +195,6 @@ class _$SearchPageStateLoading implements SearchPageStateLoading {
   @override
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
-    TResult Function(_SearchPageStateInitial value)? initial,
     TResult Function(SearchPageStateLoading value)? loading,
     TResult Function(SearchPageStateLoaded value)? loaded,
     TResult Function(SearchPageStateError value)? error,
@@ -410,7 +277,6 @@ class _$SearchPageStateLoaded implements SearchPageStateLoaded {
   @override
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
-    required TResult Function() initial,
     required TResult Function() loading,
     required TResult Function(Weather? weather) loaded,
     required TResult Function() error,
@@ -421,7 +287,6 @@ class _$SearchPageStateLoaded implements SearchPageStateLoaded {
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
-    TResult Function()? initial,
     TResult Function()? loading,
     TResult Function(Weather? weather)? loaded,
     TResult Function()? error,
@@ -432,7 +297,6 @@ class _$SearchPageStateLoaded implements SearchPageStateLoaded {
   @override
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
-    TResult Function()? initial,
     TResult Function()? loading,
     TResult Function(Weather? weather)? loaded,
     TResult Function()? error,
@@ -447,7 +311,6 @@ class _$SearchPageStateLoaded implements SearchPageStateLoaded {
   @override
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
-    required TResult Function(_SearchPageStateInitial value) initial,
     required TResult Function(SearchPageStateLoading value) loading,
     required TResult Function(SearchPageStateLoaded value) loaded,
     required TResult Function(SearchPageStateError value) error,
@@ -458,7 +321,6 @@ class _$SearchPageStateLoaded implements SearchPageStateLoaded {
   @override
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
-    TResult Function(_SearchPageStateInitial value)? initial,
     TResult Function(SearchPageStateLoading value)? loading,
     TResult Function(SearchPageStateLoaded value)? loaded,
     TResult Function(SearchPageStateError value)? error,
@@ -469,7 +331,6 @@ class _$SearchPageStateLoaded implements SearchPageStateLoaded {
   @override
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
-    TResult Function(_SearchPageStateInitial value)? initial,
     TResult Function(SearchPageStateLoading value)? loading,
     TResult Function(SearchPageStateLoaded value)? loaded,
     TResult Function(SearchPageStateError value)? error,
@@ -533,7 +394,6 @@ class _$SearchPageStateError implements SearchPageStateError {
   @override
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
-    required TResult Function() initial,
     required TResult Function() loading,
     required TResult Function(Weather? weather) loaded,
     required TResult Function() error,
@@ -544,7 +404,6 @@ class _$SearchPageStateError implements SearchPageStateError {
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
-    TResult Function()? initial,
     TResult Function()? loading,
     TResult Function(Weather? weather)? loaded,
     TResult Function()? error,
@@ -555,7 +414,6 @@ class _$SearchPageStateError implements SearchPageStateError {
   @override
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
-    TResult Function()? initial,
     TResult Function()? loading,
     TResult Function(Weather? weather)? loaded,
     TResult Function()? error,
@@ -570,7 +428,6 @@ class _$SearchPageStateError implements SearchPageStateError {
   @override
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
-    required TResult Function(_SearchPageStateInitial value) initial,
     required TResult Function(SearchPageStateLoading value) loading,
     required TResult Function(SearchPageStateLoaded value) loaded,
     required TResult Function(SearchPageStateError value) error,
@@ -581,7 +438,6 @@ class _$SearchPageStateError implements SearchPageStateError {
   @override
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
-    TResult Function(_SearchPageStateInitial value)? initial,
     TResult Function(SearchPageStateLoading value)? loading,
     TResult Function(SearchPageStateLoaded value)? loaded,
     TResult Function(SearchPageStateError value)? error,
@@ -592,7 +448,6 @@ class _$SearchPageStateError implements SearchPageStateError {
   @override
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
-    TResult Function(_SearchPageStateInitial value)? initial,
     TResult Function(SearchPageStateLoading value)? loading,
     TResult Function(SearchPageStateLoaded value)? loaded,
     TResult Function(SearchPageStateError value)? error,

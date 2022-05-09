@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:wheather_app/extensions/extensions_mixin.dart';
+import 'package:wheather_app/style/app_typography.dart';
 
 class AppTextInput extends StatefulWidget {
   const AppTextInput({required this.onSubmitted, Key? key}) : super(key: key);
@@ -40,42 +41,44 @@ class _AppTextInputState extends State<AppTextInput> {
           focusNode: _focusNode,
           controller: _textEditingController,
           textCapitalization: TextCapitalization.words,
-          style: TextStyle(color: context.getColors().white),
+          style: _getTextFieldTextStyle(context),
           cursorColor: context.getColors().white,
           onSubmitted: _onSubmitted,
           decoration: _inputDecoration(context),
         ),
       );
 
-  InputDecoration _inputDecoration(BuildContext context) => InputDecoration(
-        fillColor: Colors.transparent,
-        iconColor: context.getColors().white,
-        focusColor: context.getColors().white,
-        labelText: 'Search',
-        disabledBorder: InputBorder.none,
-        enabledBorder: InputBorder.none,
-        focusedBorder: InputBorder.none,
-        errorBorder: InputBorder.none,
-        labelStyle: TextStyle(
-          color: context.getColors().white,
-        ),
-        hintStyle: TextStyle(
-          fontSize: 15.sp,
-          color: context.getColors().white,
-        ),
-        contentPadding: EdgeInsets.symmetric(
-          horizontal: 16.0.w,
-          vertical: 8.0.h,
-        ),
-        prefixIcon: Icon(
-          Icons.search,
-          color: context.getColors().white,
-        ),
-      );
+  InputDecoration _inputDecoration(BuildContext context) {
+    final Color white = context.getColors().white;
+    return InputDecoration(
+      fillColor: Colors.transparent,
+      iconColor: white,
+      focusColor: white,
+      labelText: 'Search',
+      disabledBorder: InputBorder.none,
+      enabledBorder: InputBorder.none,
+      focusedBorder: InputBorder.none,
+      errorBorder: InputBorder.none,
+      labelStyle: _getTextFieldTextStyle(context),
+      hintStyle: _getTextFieldTextStyle(context),
+      contentPadding: EdgeInsets.symmetric(
+        horizontal: 16.0.w,
+        vertical: 8.0.h,
+      ),
+      prefixIcon: Icon(
+        Icons.search,
+        color: white,
+      ),
+    );
+  }
 
   void _onSubmitted(String text) {
     widget.onSubmitted(text.trim());
     _textEditingController.clear();
     _focusNode.unfocus();
   }
+
+  TextStyle? _getTextFieldTextStyle(BuildContext context) => AppTypography.textFieldText.copyWith(
+        color: context.getColors().white,
+      );
 }
