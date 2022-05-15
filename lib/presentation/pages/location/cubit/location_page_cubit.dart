@@ -38,7 +38,7 @@ class LocationPageCubit extends Cubit<LocationPageState> {
     emit(const LocationPageState.loading());
     await _handleLocationPermissions();
     if (!_isLocationGranted) {
-      requestLocationPermissions();
+      await requestLocationPermissions();
     } else {
       await getWeather();
     }

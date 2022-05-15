@@ -80,15 +80,16 @@ class _MainPageState extends State<MainPage> {
 }
 
 class _BottomNavigationBar extends StatelessWidget {
+  final List<BottomTab> tabs;
+  final void Function(int index) onSelected;
+  final int currentIndex;
+
   const _BottomNavigationBar({
     required this.tabs,
     required this.currentIndex,
     required this.onSelected,
     Key? key,
   }) : super(key: key);
-  final List<BottomTab> tabs;
-  final void Function(int index) onSelected;
-  final int currentIndex;
 
   @override
   Widget build(BuildContext context) => BottomAppBar(
@@ -110,6 +111,11 @@ class _BottomNavigationBar extends StatelessWidget {
 }
 
 class _FloatingActionButton extends StatelessWidget {
+  final BottomTab tab;
+  final int currentIndex;
+  final Function(int) onSelected;
+  final int tabsLength;
+
   const _FloatingActionButton({
     required this.tab,
     required this.currentIndex,
@@ -117,10 +123,6 @@ class _FloatingActionButton extends StatelessWidget {
     required this.tabsLength,
     Key? key,
   }) : super(key: key);
-  final BottomTab tab;
-  final int currentIndex;
-  final Function(int) onSelected;
-  final int tabsLength;
 
   @override
   Widget build(BuildContext context) => Container(
@@ -138,6 +140,11 @@ class _FloatingActionButton extends StatelessWidget {
 }
 
 class _BottomNavigationIcon extends StatelessWidget {
+  final String iconPath;
+  final bool isActive;
+  final VoidCallback onTap;
+  final Color? selectedColor;
+
   const _BottomNavigationIcon({
     required this.iconPath,
     required this.isActive,
@@ -145,10 +152,6 @@ class _BottomNavigationIcon extends StatelessWidget {
     this.selectedColor,
     Key? key,
   }) : super(key: key);
-  final String iconPath;
-  final bool isActive;
-  final VoidCallback onTap;
-  final Color? selectedColor;
 
   @override
   Widget build(BuildContext context) => InkWell(
