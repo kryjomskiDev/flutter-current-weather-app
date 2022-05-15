@@ -30,15 +30,30 @@ class SettingsPage extends StatelessWidget implements AutoRouteWrapper {
             style: AppTypography.subTitle.copyWith(color: Colors.black),
           ),
         ),
-        body: BlocBuilder<SettingsPageCubit, SettingsPageState>(
-          builder: (context, state) => state.maybeWhen(
-            loading: () => const AppLoadingSpinner(),
-            loaded: () => _SettingPageBody(
-              isGranted: context.read<SettingsPageCubit>().isLocationGranted,
-            ),
-            orElse: () => const SizedBox.shrink(),
+        body: BlocConsumer<SettingsPageCubit, SettingsPageState>(
+          listenWhen: (previous, current) => current is SettingsPageStateShowPermissionsInfo,
+          buildWhen: (previous, current) => current is SettingsPageStateLoading || current is SettingsPageStateLoaded,
+          listener: _listener,
+          builder: _builder,
+        ),
+      );
+
+  void _listener(BuildContext context, SettingsPageState state) => state.maybeWhen(
+        showPermissionsInfo: () => ScaffoldMessenger.of(context).showSnackBar(
+          const SnackBar(
+            content: Text('Permissions allready granted'),
+            behavior: SnackBarBehavior.floating,
           ),
         ),
+        orElse: () => null,
+      );
+
+  Widget _builder(BuildContext context, SettingsPageState state) => state.maybeWhen(
+        loading: () => const AppLoadingSpinner(),
+        loaded: () => _SettingPageBody(
+          isGranted: context.read<SettingsPageCubit>().isLocationGranted,
+        ),
+        orElse: () => const SizedBox.shrink(),
       );
 }
 
@@ -64,42 +79,52 @@ class _SettingPageBody extends StatelessWidget {
                 height: 120.h,
               ),
               SizedBox(height: 30.h),
-              SettingsTile(
-                  title: 'Permissions',
-                  subtitle: 'Location Permissions',
-                  trailing: AllowPermissionsButton(
-                    isGranted: context.read<SettingsPageCubit>().isLocationGranted,
-                    onPressed: context.read<SettingsPageCubit>().onPermissionButtonTap,
-                  )),
-              const SettingsTile(
-                title: 'About',
-                subtitle: 'In this app you can get weather for your current location or by searching by City name',
-              ),
-              const SettingsTile(
-                title: 'Provided By',
-                subtitle: 'Open Weather Api',
-              )
+              ..._getSettingsTile(context),
             ],
           ),
         ),
       );
+
+  List<SettingsTile> _getSettingsTile(BuildContext context) => [
+        SettingsTile(
+            title: 'Permissions',
+            subtitle: 'Location Permissions',
+            trailing: AllowPermissionsButton(
+              isGranted: context.read<SettingsPageCubit>().isLocationGranted,
+              onPermissionButtonTap: context.read<SettingsPageCubit>().onPermissionButtonTap,
+              onPermissionIconTap: context.read<SettingsPageCubit>().onPermissionsGrantedIconTap,
+            )),
+        const SettingsTile(
+          title: 'About',
+          subtitle: 'In this app you can get weather for your current location or by searching by City name',
+        ),
+        const SettingsTile(
+          title: 'Provided By',
+          subtitle: 'Open Weather Api',
+        )
+      ];
 }
 
 class AllowPermissionsButton extends StatelessWidget {
   final bool isGranted;
-  final VoidCallback onPressed;
+  final VoidCallback onPermissionButtonTap;
+  final VoidCallback onPermissionIconTap;
 
   const AllowPermissionsButton({
     required this.isGranted,
-    required this.onPressed,
+    required this.onPermissionButtonTap,
+    required this.onPermissionIconTap,
     Key? key,
   }) : super(key: key);
 
   @override
   Widget build(BuildContext context) => isGranted
-      ? SvgPicture.asset(IconsSvg.permissionsGranted)
+      ? InkWell(
+          onTap: onPermissionIconTap,
+          child: SvgPicture.asset(IconsSvg.permissionsGranted),
+        )
       : OutlinedButton(
-          onPressed: onPressed,
+          onPressed: onPermissionButtonTap,
           style: OutlinedButton.styleFrom(
             backgroundColor: context.getColors().mainColor,
             primary: context.getColors().white,

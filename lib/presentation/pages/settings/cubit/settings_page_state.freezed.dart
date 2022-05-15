@@ -28,6 +28,10 @@ class _$SettingsPageStateTearOff {
   SettingsPageStateLoaded loaded() {
     return const SettingsPageStateLoaded();
   }
+
+  SettingsPageStateShowPermissionsInfo showPermissionsInfo() {
+    return const SettingsPageStateShowPermissionsInfo();
+  }
 }
 
 /// @nodoc
@@ -40,6 +44,7 @@ mixin _$SettingsPageState {
     required TResult Function() initial,
     required TResult Function() loading,
     required TResult Function() loaded,
+    required TResult Function() showPermissionsInfo,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -47,6 +52,7 @@ mixin _$SettingsPageState {
     TResult Function()? initial,
     TResult Function()? loading,
     TResult Function()? loaded,
+    TResult Function()? showPermissionsInfo,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -54,6 +60,7 @@ mixin _$SettingsPageState {
     TResult Function()? initial,
     TResult Function()? loading,
     TResult Function()? loaded,
+    TResult Function()? showPermissionsInfo,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
@@ -62,6 +69,8 @@ mixin _$SettingsPageState {
     required TResult Function(_SettingsPageInitial value) initial,
     required TResult Function(SettingsPageStateLoading value) loading,
     required TResult Function(SettingsPageStateLoaded value) loaded,
+    required TResult Function(SettingsPageStateShowPermissionsInfo value)
+        showPermissionsInfo,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -69,6 +78,8 @@ mixin _$SettingsPageState {
     TResult Function(_SettingsPageInitial value)? initial,
     TResult Function(SettingsPageStateLoading value)? loading,
     TResult Function(SettingsPageStateLoaded value)? loaded,
+    TResult Function(SettingsPageStateShowPermissionsInfo value)?
+        showPermissionsInfo,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -76,6 +87,8 @@ mixin _$SettingsPageState {
     TResult Function(_SettingsPageInitial value)? initial,
     TResult Function(SettingsPageStateLoading value)? loading,
     TResult Function(SettingsPageStateLoaded value)? loaded,
+    TResult Function(SettingsPageStateShowPermissionsInfo value)?
+        showPermissionsInfo,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
@@ -142,6 +155,7 @@ class _$_SettingsPageInitial implements _SettingsPageInitial {
     required TResult Function() initial,
     required TResult Function() loading,
     required TResult Function() loaded,
+    required TResult Function() showPermissionsInfo,
   }) {
     return initial();
   }
@@ -152,6 +166,7 @@ class _$_SettingsPageInitial implements _SettingsPageInitial {
     TResult Function()? initial,
     TResult Function()? loading,
     TResult Function()? loaded,
+    TResult Function()? showPermissionsInfo,
   }) {
     return initial?.call();
   }
@@ -162,6 +177,7 @@ class _$_SettingsPageInitial implements _SettingsPageInitial {
     TResult Function()? initial,
     TResult Function()? loading,
     TResult Function()? loaded,
+    TResult Function()? showPermissionsInfo,
     required TResult orElse(),
   }) {
     if (initial != null) {
@@ -176,6 +192,8 @@ class _$_SettingsPageInitial implements _SettingsPageInitial {
     required TResult Function(_SettingsPageInitial value) initial,
     required TResult Function(SettingsPageStateLoading value) loading,
     required TResult Function(SettingsPageStateLoaded value) loaded,
+    required TResult Function(SettingsPageStateShowPermissionsInfo value)
+        showPermissionsInfo,
   }) {
     return initial(this);
   }
@@ -186,6 +204,8 @@ class _$_SettingsPageInitial implements _SettingsPageInitial {
     TResult Function(_SettingsPageInitial value)? initial,
     TResult Function(SettingsPageStateLoading value)? loading,
     TResult Function(SettingsPageStateLoaded value)? loaded,
+    TResult Function(SettingsPageStateShowPermissionsInfo value)?
+        showPermissionsInfo,
   }) {
     return initial?.call(this);
   }
@@ -196,6 +216,8 @@ class _$_SettingsPageInitial implements _SettingsPageInitial {
     TResult Function(_SettingsPageInitial value)? initial,
     TResult Function(SettingsPageStateLoading value)? loading,
     TResult Function(SettingsPageStateLoaded value)? loaded,
+    TResult Function(SettingsPageStateShowPermissionsInfo value)?
+        showPermissionsInfo,
     required TResult orElse(),
   }) {
     if (initial != null) {
@@ -254,6 +276,7 @@ class _$SettingsPageStateLoading implements SettingsPageStateLoading {
     required TResult Function() initial,
     required TResult Function() loading,
     required TResult Function() loaded,
+    required TResult Function() showPermissionsInfo,
   }) {
     return loading();
   }
@@ -264,6 +287,7 @@ class _$SettingsPageStateLoading implements SettingsPageStateLoading {
     TResult Function()? initial,
     TResult Function()? loading,
     TResult Function()? loaded,
+    TResult Function()? showPermissionsInfo,
   }) {
     return loading?.call();
   }
@@ -274,6 +298,7 @@ class _$SettingsPageStateLoading implements SettingsPageStateLoading {
     TResult Function()? initial,
     TResult Function()? loading,
     TResult Function()? loaded,
+    TResult Function()? showPermissionsInfo,
     required TResult orElse(),
   }) {
     if (loading != null) {
@@ -288,6 +313,8 @@ class _$SettingsPageStateLoading implements SettingsPageStateLoading {
     required TResult Function(_SettingsPageInitial value) initial,
     required TResult Function(SettingsPageStateLoading value) loading,
     required TResult Function(SettingsPageStateLoaded value) loaded,
+    required TResult Function(SettingsPageStateShowPermissionsInfo value)
+        showPermissionsInfo,
   }) {
     return loading(this);
   }
@@ -298,6 +325,8 @@ class _$SettingsPageStateLoading implements SettingsPageStateLoading {
     TResult Function(_SettingsPageInitial value)? initial,
     TResult Function(SettingsPageStateLoading value)? loading,
     TResult Function(SettingsPageStateLoaded value)? loaded,
+    TResult Function(SettingsPageStateShowPermissionsInfo value)?
+        showPermissionsInfo,
   }) {
     return loading?.call(this);
   }
@@ -308,6 +337,8 @@ class _$SettingsPageStateLoading implements SettingsPageStateLoading {
     TResult Function(_SettingsPageInitial value)? initial,
     TResult Function(SettingsPageStateLoading value)? loading,
     TResult Function(SettingsPageStateLoaded value)? loaded,
+    TResult Function(SettingsPageStateShowPermissionsInfo value)?
+        showPermissionsInfo,
     required TResult orElse(),
   }) {
     if (loading != null) {
@@ -365,6 +396,7 @@ class _$SettingsPageStateLoaded implements SettingsPageStateLoaded {
     required TResult Function() initial,
     required TResult Function() loading,
     required TResult Function() loaded,
+    required TResult Function() showPermissionsInfo,
   }) {
     return loaded();
   }
@@ -375,6 +407,7 @@ class _$SettingsPageStateLoaded implements SettingsPageStateLoaded {
     TResult Function()? initial,
     TResult Function()? loading,
     TResult Function()? loaded,
+    TResult Function()? showPermissionsInfo,
   }) {
     return loaded?.call();
   }
@@ -385,6 +418,7 @@ class _$SettingsPageStateLoaded implements SettingsPageStateLoaded {
     TResult Function()? initial,
     TResult Function()? loading,
     TResult Function()? loaded,
+    TResult Function()? showPermissionsInfo,
     required TResult orElse(),
   }) {
     if (loaded != null) {
@@ -399,6 +433,8 @@ class _$SettingsPageStateLoaded implements SettingsPageStateLoaded {
     required TResult Function(_SettingsPageInitial value) initial,
     required TResult Function(SettingsPageStateLoading value) loading,
     required TResult Function(SettingsPageStateLoaded value) loaded,
+    required TResult Function(SettingsPageStateShowPermissionsInfo value)
+        showPermissionsInfo,
   }) {
     return loaded(this);
   }
@@ -409,6 +445,8 @@ class _$SettingsPageStateLoaded implements SettingsPageStateLoaded {
     TResult Function(_SettingsPageInitial value)? initial,
     TResult Function(SettingsPageStateLoading value)? loading,
     TResult Function(SettingsPageStateLoaded value)? loaded,
+    TResult Function(SettingsPageStateShowPermissionsInfo value)?
+        showPermissionsInfo,
   }) {
     return loaded?.call(this);
   }
@@ -419,6 +457,8 @@ class _$SettingsPageStateLoaded implements SettingsPageStateLoaded {
     TResult Function(_SettingsPageInitial value)? initial,
     TResult Function(SettingsPageStateLoading value)? loading,
     TResult Function(SettingsPageStateLoaded value)? loaded,
+    TResult Function(SettingsPageStateShowPermissionsInfo value)?
+        showPermissionsInfo,
     required TResult orElse(),
   }) {
     if (loaded != null) {
@@ -430,4 +470,131 @@ class _$SettingsPageStateLoaded implements SettingsPageStateLoaded {
 
 abstract class SettingsPageStateLoaded implements SettingsPageState {
   const factory SettingsPageStateLoaded() = _$SettingsPageStateLoaded;
+}
+
+/// @nodoc
+abstract class $SettingsPageStateShowPermissionsInfoCopyWith<$Res> {
+  factory $SettingsPageStateShowPermissionsInfoCopyWith(
+          SettingsPageStateShowPermissionsInfo value,
+          $Res Function(SettingsPageStateShowPermissionsInfo) then) =
+      _$SettingsPageStateShowPermissionsInfoCopyWithImpl<$Res>;
+}
+
+/// @nodoc
+class _$SettingsPageStateShowPermissionsInfoCopyWithImpl<$Res>
+    extends _$SettingsPageStateCopyWithImpl<$Res>
+    implements $SettingsPageStateShowPermissionsInfoCopyWith<$Res> {
+  _$SettingsPageStateShowPermissionsInfoCopyWithImpl(
+      SettingsPageStateShowPermissionsInfo _value,
+      $Res Function(SettingsPageStateShowPermissionsInfo) _then)
+      : super(_value, (v) => _then(v as SettingsPageStateShowPermissionsInfo));
+
+  @override
+  SettingsPageStateShowPermissionsInfo get _value =>
+      super._value as SettingsPageStateShowPermissionsInfo;
+}
+
+/// @nodoc
+
+class _$SettingsPageStateShowPermissionsInfo
+    implements SettingsPageStateShowPermissionsInfo {
+  const _$SettingsPageStateShowPermissionsInfo();
+
+  @override
+  String toString() {
+    return 'SettingsPageState.showPermissionsInfo()';
+  }
+
+  @override
+  bool operator ==(dynamic other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is SettingsPageStateShowPermissionsInfo);
+  }
+
+  @override
+  int get hashCode => runtimeType.hashCode;
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function() initial,
+    required TResult Function() loading,
+    required TResult Function() loaded,
+    required TResult Function() showPermissionsInfo,
+  }) {
+    return showPermissionsInfo();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult Function()? initial,
+    TResult Function()? loading,
+    TResult Function()? loaded,
+    TResult Function()? showPermissionsInfo,
+  }) {
+    return showPermissionsInfo?.call();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function()? initial,
+    TResult Function()? loading,
+    TResult Function()? loaded,
+    TResult Function()? showPermissionsInfo,
+    required TResult orElse(),
+  }) {
+    if (showPermissionsInfo != null) {
+      return showPermissionsInfo();
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(_SettingsPageInitial value) initial,
+    required TResult Function(SettingsPageStateLoading value) loading,
+    required TResult Function(SettingsPageStateLoaded value) loaded,
+    required TResult Function(SettingsPageStateShowPermissionsInfo value)
+        showPermissionsInfo,
+  }) {
+    return showPermissionsInfo(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult Function(_SettingsPageInitial value)? initial,
+    TResult Function(SettingsPageStateLoading value)? loading,
+    TResult Function(SettingsPageStateLoaded value)? loaded,
+    TResult Function(SettingsPageStateShowPermissionsInfo value)?
+        showPermissionsInfo,
+  }) {
+    return showPermissionsInfo?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(_SettingsPageInitial value)? initial,
+    TResult Function(SettingsPageStateLoading value)? loading,
+    TResult Function(SettingsPageStateLoaded value)? loaded,
+    TResult Function(SettingsPageStateShowPermissionsInfo value)?
+        showPermissionsInfo,
+    required TResult orElse(),
+  }) {
+    if (showPermissionsInfo != null) {
+      return showPermissionsInfo(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class SettingsPageStateShowPermissionsInfo
+    implements SettingsPageState {
+  const factory SettingsPageStateShowPermissionsInfo() =
+      _$SettingsPageStateShowPermissionsInfo;
 }

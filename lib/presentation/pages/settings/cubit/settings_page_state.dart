@@ -7,4 +7,5 @@ class SettingsPageState with _$SettingsPageState {
   const factory SettingsPageState.initial() = _SettingsPageInitial;
   const factory SettingsPageState.loading() = SettingsPageStateLoading;
   const factory SettingsPageState.loaded() = SettingsPageStateLoaded;
+  const factory SettingsPageState.showPermissionsInfo() = SettingsPageStateShowPermissionsInfo;
 }

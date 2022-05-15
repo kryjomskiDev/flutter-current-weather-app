@@ -1,7 +1,6 @@
 import 'dart:io';
 
 import 'package:bloc/bloc.dart';
-import 'package:equatable/equatable.dart';
 import 'package:injectable/injectable.dart';
 import 'package:wheather_app/domain/permissions/usecase/is_location_permissions_granted_use_case.dart';
 import 'package:wheather_app/domain/permissions/usecase/is_location_permissions_permanently_denied_use_case.dart';
@@ -36,6 +35,12 @@ class SettingsPageCubit extends Cubit<SettingsPageState> {
     if (!isClosed) {
       await _checkPermissionStatus();
     }
+  }
+
+  Future<void> onPermissionsGrantedIconTap() async {
+    final cachedState = state;
+    emit(const SettingsPageState.showPermissionsInfo());
+    emit(cachedState);
   }
 
   Future<void> _checkPermissionStatus() async {
