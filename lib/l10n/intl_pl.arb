@@ -4,5 +4,14 @@
     "current_weather": "Aktualna Pogoda W {location}",
     "try_again": "Spróbuj Ponownie",
     "search_page_tap_on_top_info": "Kliknj u góry, by wyszukać pogodę dla wybranego miasta.",
-    "search_page_error_message": "Wystąpił błąd. Upewnij się, że podałeś prawidłową nazwę miasta."
+    "search_page_error_message": "Wystąpił błąd. Upewnij się, że podałeś prawidłową nazwę miasta.",
+    "settings": "Ustawienia",
+    "permissions": "Uprawnienia",
+    "permissions_already_granted": "Już przyznane!",
+    "allow": "Zezwól",
+    "location_permissions": "Uprawnienia do lokalizacji",
+    "about":"O nas",
+    "about_descripiton": "Sprawdź pogodę dla swojej aktualnej lokalizacji lub wyszukując według nazwy miasta",
+    "powered_by": "Powered By",
+    "open_weather_api": "Open Weather API"
 }

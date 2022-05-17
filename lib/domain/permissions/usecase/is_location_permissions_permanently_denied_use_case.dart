@@ -7,5 +7,5 @@ class IsLocationPermissionsPermanentlyDeniedUseCase {
 
   IsLocationPermissionsPermanentlyDeniedUseCase(this._service);
 
-  Future<bool> call() async => await _service.isLocationPermissionsPermanentlyDenied();
+  Future<bool> call() => _service.isLocationPermissionsPermanentlyDenied();
 }

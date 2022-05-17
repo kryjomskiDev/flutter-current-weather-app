@@ -24,12 +24,25 @@ class MessageLookup extends MessageLookupByLibrary {
 
   final messages = _notInlinedMessages(_notInlinedMessages);
   static Map<String, Function> _notInlinedMessages(_) => <String, Function>{
+        "about": MessageLookupByLibrary.simpleMessage("O nas"),
+        "about_descripiton": MessageLookupByLibrary.simpleMessage(
+            "Sprawdź pogodę dla swojej aktualnej lokalizacji lub wyszukując według nazwy miasta"),
+        "allow": MessageLookupByLibrary.simpleMessage("Zezwól"),
         "current_weather": m0,
         "hello": MessageLookupByLibrary.simpleMessage("Cześć!"),
+        "location_permissions":
+            MessageLookupByLibrary.simpleMessage("Uprawnienia do lokalizacji"),
+        "open_weather_api":
+            MessageLookupByLibrary.simpleMessage("Open Weather API"),
+        "permissions": MessageLookupByLibrary.simpleMessage("Uprawnienia"),
+        "permissions_already_granted":
+            MessageLookupByLibrary.simpleMessage("Już przyznane!"),
+        "powered_by": MessageLookupByLibrary.simpleMessage("Powered By"),
         "search_page_error_message": MessageLookupByLibrary.simpleMessage(
             "Wystąpił błąd. Upewnij się, że podałeś prawidłową nazwę miasta."),
         "search_page_tap_on_top_info": MessageLookupByLibrary.simpleMessage(
             "Kliknj u góry, by wyszukać pogodę dla wybranego miasta."),
+        "settings": MessageLookupByLibrary.simpleMessage("Ustawienia"),
         "try_again": MessageLookupByLibrary.simpleMessage("Spróbuj Ponownie")
       };
 }

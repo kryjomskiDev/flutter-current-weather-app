@@ -24,12 +24,25 @@ class MessageLookup extends MessageLookupByLibrary {
 
   final messages = _notInlinedMessages(_notInlinedMessages);
   static Map<String, Function> _notInlinedMessages(_) => <String, Function>{
+        "about": MessageLookupByLibrary.simpleMessage("About"),
+        "about_descripiton": MessageLookupByLibrary.simpleMessage(
+            "Get weather for your current location or by searching by city name"),
+        "allow": MessageLookupByLibrary.simpleMessage("Allow"),
         "current_weather": m0,
         "hello": MessageLookupByLibrary.simpleMessage("Hello!"),
+        "location_permissions":
+            MessageLookupByLibrary.simpleMessage("Location Permissions"),
+        "open_weather_api":
+            MessageLookupByLibrary.simpleMessage("Open Weather API"),
+        "permissions": MessageLookupByLibrary.simpleMessage("Permissions"),
+        "permissions_already_granted":
+            MessageLookupByLibrary.simpleMessage("Already granted!"),
+        "powered_by": MessageLookupByLibrary.simpleMessage("Powered By"),
         "search_page_error_message": MessageLookupByLibrary.simpleMessage(
             "Error occured. Make sure you enter the correct city name."),
         "search_page_tap_on_top_info": MessageLookupByLibrary.simpleMessage(
             "Tap on top to search weather for chosen city."),
+        "settings": MessageLookupByLibrary.simpleMessage("Settings"),
         "try_again": MessageLookupByLibrary.simpleMessage("Try again")
       };
 }

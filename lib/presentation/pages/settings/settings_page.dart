@@ -3,13 +3,15 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_svg/svg.dart';
+import 'package:wheather_app/generated/l10n.dart';
 import 'package:wheather_app/injectable/injectable.dart';
 import 'package:wheather_app/presentation/pages/settings/cubit/settings_page_cubit.dart';
 import 'package:wheather_app/presentation/pages/settings/cubit/settings_page_state.dart';
+import 'package:wheather_app/presentation/pages/settings/widgets/allow_permissions_button.dart';
+import 'package:wheather_app/presentation/pages/settings/widgets/settings_tile.dart';
 import 'package:wheather_app/presentation/widgets/spinner/app_loading_spinner.dart';
 import 'package:wheather_app/style/app_typography.dart';
 import 'package:wheather_app/style/images.dart';
-import 'package:wheather_app/extensions/extensions_mixin.dart';
 
 class SettingsPage extends StatelessWidget implements AutoRouteWrapper {
   const SettingsPage({Key? key}) : super(key: key);
@@ -26,7 +28,7 @@ class SettingsPage extends StatelessWidget implements AutoRouteWrapper {
           shadowColor: Colors.transparent,
           centerTitle: true,
           title: Text(
-            'Settings',
+            Strings.of(context).settings,
             style: AppTypography.subTitle.copyWith(color: Colors.black),
           ),
         ),
@@ -40,8 +42,8 @@ class SettingsPage extends StatelessWidget implements AutoRouteWrapper {
 
   void _listener(BuildContext context, SettingsPageState state) => state.maybeWhen(
         showPermissionsInfo: () => ScaffoldMessenger.of(context).showSnackBar(
-          const SnackBar(
-            content: Text('Permissions allready granted'),
+          SnackBar(
+            content: Text(Strings.of(context).permissions_already_granted),
             behavior: SnackBarBehavior.floating,
           ),
         ),
@@ -87,98 +89,20 @@ class _SettingPageBody extends StatelessWidget {
 
   List<SettingsTile> _getSettingsTile(BuildContext context) => [
         SettingsTile(
-            title: 'Permissions',
-            subtitle: 'Location Permissions',
+            title: Strings.of(context).permissions,
+            subtitle: Strings.of(context).location_permissions,
             trailing: AllowPermissionsButton(
               isGranted: context.read<SettingsPageCubit>().isLocationGranted,
               onPermissionButtonTap: context.read<SettingsPageCubit>().onPermissionButtonTap,
               onPermissionIconTap: context.read<SettingsPageCubit>().onPermissionsGrantedIconTap,
             )),
-        const SettingsTile(
-          title: 'About',
-          subtitle: 'In this app you can get weather for your current location or by searching by City name',
+        SettingsTile(
+          title: Strings.of(context).about,
+          subtitle: Strings.of(context).about_descripiton,
         ),
-        const SettingsTile(
-          title: 'Provided By',
-          subtitle: 'Open Weather Api',
+        SettingsTile(
+          title: Strings.of(context).powered_by,
+          subtitle: Strings.of(context).open_weather_api,
         )
       ];
-}
-
-class AllowPermissionsButton extends StatelessWidget {
-  final bool isGranted;
-  final VoidCallback onPermissionButtonTap;
-  final VoidCallback onPermissionIconTap;
-
-  const AllowPermissionsButton({
-    required this.isGranted,
-    required this.onPermissionButtonTap,
-    required this.onPermissionIconTap,
-    Key? key,
-  }) : super(key: key);
-
-  @override
-  Widget build(BuildContext context) => isGranted
-      ? InkWell(
-          onTap: onPermissionIconTap,
-          child: SvgPicture.asset(IconsSvg.permissionsGranted),
-        )
-      : OutlinedButton(
-          onPressed: onPermissionButtonTap,
-          style: OutlinedButton.styleFrom(
-            backgroundColor: context.getColors().mainColor,
-            primary: context.getColors().white,
-          ),
-          child: const Text('Allow'),
-        );
-}
-
-class TabDivider extends StatelessWidget {
-  const TabDivider({Key? key}) : super(key: key);
-
-  @override
-  Widget build(BuildContext context) => Column(
-        children: [
-          SizedBox(height: 5.h),
-          Divider(
-            height: 2.h,
-            color: Colors.black,
-          ),
-          SizedBox(height: 5.h),
-        ],
-      );
-}
-
-class SettingsTile extends StatelessWidget {
-  final String title;
-  final String subtitle;
-  final Widget? trailing;
-
-  const SettingsTile({
-    required this.title,
-    required this.subtitle,
-    this.trailing,
-    Key? key,
-  }) : super(key: key);
-
-  @override
-  Widget build(BuildContext context) => Column(
-        crossAxisAlignment: CrossAxisAlignment.start,
-        children: [
-          Text(title, style: AppTypography.title.copyWith(fontSize: 16)),
-          Row(
-            mainAxisAlignment: MainAxisAlignment.spaceBetween,
-            children: [
-              Expanded(
-                child: Text(
-                  subtitle,
-                  softWrap: true,
-                ),
-              ),
-              trailing ?? const SizedBox.shrink(),
-            ],
-          ),
-          const TabDivider()
-        ],
-      );
 }

@@ -7,5 +7,5 @@ class IsLocationPermissionsGrantedUseCase {
 
   IsLocationPermissionsGrantedUseCase(this._service);
 
-  Future<bool> call() async => await _service.isLocationPermissionsGranted();
+  Future<bool> call() => _service.isLocationPermissionsGranted();
 }
