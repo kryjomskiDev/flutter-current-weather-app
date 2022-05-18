@@ -38,7 +38,7 @@ class LocationPageCubit extends Cubit<LocationPageState> {
     emit(const LocationPageState.loading());
     await _handleLocationPermissions();
     if (!_isLocationGranted) {
-      requestLocationPermissions();
+      await requestLocationPermissions();
     } else {
       await getWeather();
     }
@@ -74,17 +74,23 @@ class LocationPageCubit extends Cubit<LocationPageState> {
 
   Future<void> getWeather() async {
     try {
-      emit(const LocationPageState.loading());
+      if (!isClosed) {
+        emit(const LocationPageState.loading());
+      }
       final location = await _getLocationDataUseCase.call();
 
       if (location.latitude != null && location.longitude != null) {
         final weather = await _getWeatherByCordsUseCase.call(location.latitude!, location.longitude!);
-        emit(LocationPageState.loaded(weather: weather));
+        if (!isClosed) {
+          emit(LocationPageState.loaded(weather: weather));
+        }
       }
     } catch (error, st) {
       Fimber.e('Error during getting weather', ex: error, stacktrace: st);
       //TODO: REFACTOR
-      emit(const LocationPageState.permissionsNotGranted());
+      if (!isClosed) {
+        emit(const LocationPageState.permissionsNotGranted());
+      }
     }
   }
 }

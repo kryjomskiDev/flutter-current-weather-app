@@ -30,9 +30,10 @@ import '../domain/weather/service/weather_service.dart' as _i13;
 import '../domain/weather/usecase/get_weather_by_city_name_use_case.dart'
     as _i16;
 import '../domain/weather/usecase/get_weather_by_cords_use_case.dart' as _i17;
-import '../presentation/pages/location/cubit/location_page_cubit.dart' as _i22;
+import '../presentation/pages/location/cubit/location_page_cubit.dart' as _i23;
 import '../presentation/pages/search/cubit/search_page_cubit.dart' as _i21;
-import 'dio/dio_injectable.dart' as _i23;
+import '../presentation/pages/settings/cubit/settings_page_cubit.dart' as _i22;
+import 'dio/dio_injectable.dart' as _i24;
 
 const String _dev = 'dev';
 const String _prod = 'prod';
@@ -76,7 +77,13 @@ _i1.GetIt $initGetIt(_i1.GetIt get,
       () => _i20.OpenSettingsUseCase(get<_i7.PermissionsService>()));
   gh.factory<_i21.SearchPageCubit>(
       () => _i21.SearchPageCubit(get<_i16.GetWeatherByCityNameUseCase>()));
-  gh.factory<_i22.LocationPageCubit>(() => _i22.LocationPageCubit(
+  gh.factory<_i22.SettingsPageCubit>(() => _i22.SettingsPageCubit(
+      get<_i20.OpenSettingsUseCase>(),
+      get<_i9.RequestLocationPermissionOnAndroidUseCase>(),
+      get<_i18.IsLocationPermissionsGrantedUseCase>(),
+      get<_i10.RequestLocationPermissionsUseCase>(),
+      get<_i19.IsLocationPermissionsPermanentlyDeniedUseCase>()));
+  gh.factory<_i23.LocationPageCubit>(() => _i23.LocationPageCubit(
       get<_i20.OpenSettingsUseCase>(),
       get<_i10.RequestLocationPermissionsUseCase>(),
       get<_i18.IsLocationPermissionsGrantedUseCase>(),
@@ -87,4 +94,4 @@ _i1.GetIt $initGetIt(_i1.GetIt get,
   return get;
 }
 
-class _$DioModule extends _i23.DioModule {}
+class _$DioModule extends _i24.DioModule {}

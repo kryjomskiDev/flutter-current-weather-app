@@ -7,5 +7,5 @@ class RequestLocationPermissionOnAndroidUseCase {
   final PermissionsService _service;
   RequestLocationPermissionOnAndroidUseCase(this._service);
 
-  Future<bool> call() async => _service.requestLocationPermissions().isPermanentlyDenied;
+  Future<bool> call() => _service.requestLocationPermissions().isPermanentlyDenied;
 }

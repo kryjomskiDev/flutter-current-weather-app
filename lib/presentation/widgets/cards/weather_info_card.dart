@@ -8,15 +8,16 @@ import 'package:wheather_app/style/app_typography.dart';
 import 'package:wheather_app/style/images.dart';
 
 class WeatherInfoCard extends StatelessWidget {
+  final Weather? weather;
+  final bool showErrorBody;
+  final VoidCallback? onReloadButtonTap;
+
   const WeatherInfoCard({
     required this.showErrorBody,
     this.weather,
     this.onReloadButtonTap,
     Key? key,
   }) : super(key: key);
-  final Weather? weather;
-  final bool showErrorBody;
-  final VoidCallback? onReloadButtonTap;
 
   @override
   Widget build(BuildContext context) => Container(
@@ -39,8 +40,9 @@ class WeatherInfoCard extends StatelessWidget {
 }
 
 class _CardErrorBody extends StatelessWidget {
-  const _CardErrorBody({this.onReloadButtonTap, Key? key}) : super(key: key);
   final VoidCallback? onReloadButtonTap;
+
+  const _CardErrorBody({this.onReloadButtonTap, Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) => InkWell(
@@ -65,11 +67,12 @@ class _CardErrorBody extends StatelessWidget {
 }
 
 class _CardBody extends StatelessWidget {
+  final Weather weather;
+
   const _CardBody({
     required this.weather,
     Key? key,
   }) : super(key: key);
-  final Weather weather;
 
   @override
   Widget build(BuildContext context) => Column(
@@ -98,13 +101,14 @@ class _CardBody extends StatelessWidget {
 }
 
 class _WeatherTile extends StatelessWidget {
+  final double temperature;
+  final String iconPath;
+
   const _WeatherTile({
     required this.temperature,
     required this.iconPath,
     Key? key,
   }) : super(key: key);
-  final double temperature;
-  final String iconPath;
   @override
   Widget build(BuildContext context) => Row(
         mainAxisAlignment: MainAxisAlignment.center,

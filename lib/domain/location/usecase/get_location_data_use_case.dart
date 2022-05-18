@@ -7,5 +7,5 @@ class GetLocationDataUseCase {
   final LocationService _locationService;
   GetLocationDataUseCase(this._locationService);
 
-  Future<LocationData> call() async => await _locationService.getLocation();
+  Future<LocationData> call() => _locationService.getLocation();
 }

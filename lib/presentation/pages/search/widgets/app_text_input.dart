@@ -4,9 +4,8 @@ import 'package:wheather_app/extensions/extensions_mixin.dart';
 import 'package:wheather_app/style/app_typography.dart';
 
 class AppTextInput extends StatefulWidget {
-  const AppTextInput({required this.onSubmitted, Key? key}) : super(key: key);
-
   final void Function(String) onSubmitted;
+  const AppTextInput({required this.onSubmitted, Key? key}) : super(key: key);
 
   @override
   State<AppTextInput> createState() => _AppTextInputState();

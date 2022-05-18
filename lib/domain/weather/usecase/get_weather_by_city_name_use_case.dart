@@ -7,5 +7,5 @@ class GetWeatherByCityNameUseCase {
   final WeatherService _weatherService;
   GetWeatherByCityNameUseCase(this._weatherService);
 
-  Future<Weather> call(String cityName) async => await _weatherService.getWeatherByCityName(cityName);
+  Future<Weather> call(String cityName) => _weatherService.getWeatherByCityName(cityName);
 }

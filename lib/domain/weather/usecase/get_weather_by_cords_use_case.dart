@@ -7,5 +7,5 @@ class GetWeatherByCordsUseCase {
   final WeatherService _weatherService;
   GetWeatherByCordsUseCase(this._weatherService);
 
-  Future<Weather> call(double lat, double lon) async => _weatherService.getWeatherByCords(lat, lon);
+  Future<Weather> call(double lat, double lon) => _weatherService.getWeatherByCords(lat, lon);
 }

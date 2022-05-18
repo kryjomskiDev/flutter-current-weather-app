@@ -7,5 +7,5 @@ class RequestLocationPermissionsUseCase {
   final PermissionsService _service;
   RequestLocationPermissionsUseCase(this._service);
 
-  Future<PermissionStatus> call() async => _service.requestLocationPermissions();
+  Future<PermissionStatus> call() => _service.requestLocationPermissions();
 }

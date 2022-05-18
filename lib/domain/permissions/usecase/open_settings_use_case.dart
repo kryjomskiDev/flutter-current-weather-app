@@ -6,5 +6,5 @@ class OpenSettingsUseCase {
   final PermissionsService _service;
   OpenSettingsUseCase(this._service);
 
-  Future<bool> call() async => _service.openSettings();
+  Future<bool> call() => _service.openSettings();
 }
