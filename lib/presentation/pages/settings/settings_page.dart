@@ -3,6 +3,8 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_svg/svg.dart';
+import 'package:fluttertoast/fluttertoast.dart';
+import 'package:wheather_app/extensions/extensions_mixin.dart';
 import 'package:wheather_app/generated/l10n.dart';
 import 'package:wheather_app/injectable/injectable.dart';
 import 'package:wheather_app/presentation/pages/settings/cubit/settings_page_cubit.dart';
@@ -41,11 +43,8 @@ class SettingsPage extends StatelessWidget implements AutoRouteWrapper {
       );
 
   void _listener(BuildContext context, SettingsPageState state) => state.maybeWhen(
-        showPermissionsInfo: () => ScaffoldMessenger.of(context).showSnackBar(
-          SnackBar(
-            content: Text(Strings.of(context).permissions_already_granted),
-            behavior: SnackBarBehavior.floating,
-          ),
+        showPermissionsInfo: () => Fluttertoast.showToast(
+          msg: Strings.of(context).permissions_already_granted,
         ),
         orElse: () => null,
       );
