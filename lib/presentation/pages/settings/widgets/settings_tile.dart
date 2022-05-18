@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:wheather_app/extensions/extensions_mixin.dart';
 import 'package:wheather_app/style/app_typography.dart';
 
 class SettingsTile extends StatelessWidget {
@@ -45,7 +46,7 @@ class _TabDivider extends StatelessWidget {
           SizedBox(height: 5.h),
           Divider(
             height: 2.h,
-            color: Colors.black,
+            color: context.getColors().black,
           ),
           SizedBox(height: 5.h),
         ],

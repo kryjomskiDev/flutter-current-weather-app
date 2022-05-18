@@ -61,7 +61,9 @@ _i1.GetIt $initGetIt(_i1.GetIt get,
   gh.factory<_i12.WeatherDtoToWeatherMapper>(
       () => _i12.WeatherDtoToWeatherMapper());
   gh.lazySingleton<_i13.WeatherService>(() => _i14.WeatherServiceImpl(
-      get<_i11.WeatherApiDataSource>(), get<_i12.WeatherDtoToWeatherMapper>()));
+      get<_i11.WeatherApiDataSource>(),
+      get<_i12.WeatherDtoToWeatherMapper>(),
+      get<_i3.ApiUrlProvider>()));
   gh.factory<_i15.GetLocationDataUseCase>(
       () => _i15.GetLocationDataUseCase(get<_i5.LocationService>()));
   gh.factory<_i16.GetWeatherByCityNameUseCase>(
