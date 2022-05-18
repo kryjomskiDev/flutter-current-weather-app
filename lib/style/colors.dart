@@ -8,6 +8,7 @@ abstract class AppColorBase {
   late Color white;
   late Color black;
   late Color cardColor;
+  late Color transparent;
 }
 
 class AppStandardColors {
@@ -16,4 +17,5 @@ class AppStandardColors {
   static const Color white = Color(0xFFFFFFFF);
   static const Color black = Color(0xFF000000);
   static const Color cardColor = Color(0xFFA2DBFA);
+  static const Color transparent = Colors.transparent;
 }

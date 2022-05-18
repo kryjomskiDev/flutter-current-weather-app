@@ -26,12 +26,12 @@ class SettingsPage extends StatelessWidget implements AutoRouteWrapper {
   @override
   Widget build(BuildContext context) => Scaffold(
         appBar: AppBar(
-          backgroundColor: Colors.transparent,
-          shadowColor: Colors.transparent,
+          backgroundColor: context.getColors().transparent,
+          shadowColor: context.getColors().transparent,
           centerTitle: true,
           title: Text(
             Strings.of(context).settings,
-            style: AppTypography.subTitle.copyWith(color: Colors.black),
+            style: AppTypography.subTitle.copyWith(color: context.getColors().black),
           ),
         ),
         body: BlocConsumer<SettingsPageCubit, SettingsPageState>(

@@ -50,7 +50,7 @@ class _AppTextInputState extends State<AppTextInput> {
   InputDecoration _inputDecoration(BuildContext context) {
     final Color white = context.getColors().white;
     return InputDecoration(
-      fillColor: Colors.transparent,
+      fillColor: context.getColors().transparent,
       iconColor: white,
       focusColor: white,
       labelText: 'Search',
