@@ -64,18 +64,63 @@ void main() {
 
       const Weather expectedAnswer = expectedWeather;
 
-      when(_apiUrlProvider.getApiUrl()).thenAnswer((_) => "apiUrl");
-      when(_apiUrlProvider.apiKey()).thenAnswer((_) => "6952e3f3da15fbb4919ae12ef633fce9");
+      when(_apiUrlProvider.apiKey()).thenReturn("6952e3f3da15fbb4919ae12ef633fce9");
+
+      final String apiKey = _apiUrlProvider.apiKey();
 
       when(_weatherApiDataSource.getWeatherByCityName(
         cityName,
-        _apiUrlProvider.apiKey(),
+        apiKey,
         lang,
       )).thenAnswer((_) => Future.value(weatherDto));
 
-      when(_weatherDtoToWeatherMapper(dto: weatherDto)).thenAnswer((_) => expectedWeather);
+      when(_weatherDtoToWeatherMapper(dto: weatherDto)).thenReturn(expectedWeather);
 
       final actualAnswer = await _weatherService.getWeatherByCityName(cityName);
+
+      expect(actualAnswer, expectedAnswer);
+    });
+
+    test("Get weather by cords", () async {
+      const double lat = 20.0;
+      const double lon = 20.0;
+      final String lang = Platform.localeName.substring(0, 2);
+
+      const WeatherDetailsDto weatherDetailsDto =
+          WeatherDetailsDto(description: "description", icon: "icon", main: "main");
+
+      const WeatherTemperatureDto weatherTemperatureDto = WeatherTemperatureDto(temp: 20.0);
+
+      const WeatherDto weatherDto = WeatherDto(
+        main: weatherTemperatureDto,
+        name: "name",
+        weather: [weatherDetailsDto],
+      );
+
+      const Weather expectedWeather = Weather(
+        descritpion: "description",
+        icon: "icon",
+        temperature: 20.0,
+        locationName: "main",
+        title: "name",
+      );
+
+      const Weather expectedAnswer = expectedWeather;
+
+      when(_apiUrlProvider.apiKey()).thenReturn("6952e3f3da15fbb4919ae12ef633fce9");
+
+      final String apiKey = _apiUrlProvider.apiKey();
+
+      when(_weatherApiDataSource.getWeatherByCords(
+        lat,
+        lon,
+        apiKey,
+        lang,
+      )).thenAnswer((_) => Future.value(weatherDto));
+
+      when(_weatherDtoToWeatherMapper(dto: weatherDto)).thenReturn(expectedWeather);
+
+      final actualAnswer = await _weatherService.getWeatherByCords(lat, lon);
 
       expect(actualAnswer, expectedAnswer);
     });

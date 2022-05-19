@@ -4,8 +4,11 @@ import 'package:wheather_app/domain/permissions/service/permissions_service.dart
 
 @LazySingleton(as: PermissionsService)
 class PermissionsServiceImpl implements PermissionsService {
+  final PermissionWithService _permissionWithService;
+  PermissionsServiceImpl(this._permissionWithService);
+
   @override
-  Future<PermissionStatus> getLocationPermissions() => Permission.locationWhenInUse.status;
+  Future<PermissionStatus> getLocationPermissions() => _permissionWithService.status;
 
   @override
   Future<bool> isLocationPermissionsGranted() async {
@@ -21,7 +24,7 @@ class PermissionsServiceImpl implements PermissionsService {
 
   @override
   Future<PermissionStatus> requestLocationPermissions() async {
-    final result = await Permission.locationWhenInUse.request();
+    final result = await _permissionWithService.request();
     return result;
   }
 

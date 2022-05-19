@@ -1,4 +1,6 @@
-class Weather {
+import 'package:equatable/equatable.dart';
+
+class Weather extends Equatable {
   final String title;
   final String descritpion;
   final double temperature;
@@ -12,4 +14,13 @@ class Weather {
     required this.icon,
     required this.locationName,
   });
+
+  @override
+  List<Object?> get props => [
+        title,
+        descritpion,
+        temperature,
+        icon,
+        locationName,
+      ];
 }
