@@ -22,7 +22,7 @@ void main() {
 
     when(_permissionsService.requestLocationPermissions()).thenAnswer((_) => Future.value(status));
 
-    expect(_requestLocationPermissionsUseCase(), status);
+    expect(await _requestLocationPermissionsUseCase(), status);
   });
 
   test("getting permissions status denied successfully.", () async {
