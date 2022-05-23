@@ -7,6 +7,6 @@ part 'location_page_state.freezed.dart';
 class LocationPageState with _$LocationPageState {
   const factory LocationPageState.inital() = _LocationPageInital;
   const factory LocationPageState.loading() = LocationPageLoading;
-  const factory LocationPageState.permissionsNotGranted() = LocationPagePermissionsNotGranted;
+  const factory LocationPageState.error() = LocationPageError;
   const factory LocationPageState.loaded({required Weather weather}) = LocationPageLoaded;
 }

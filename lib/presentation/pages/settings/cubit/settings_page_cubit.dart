@@ -8,9 +8,10 @@ import 'package:wheather_app/domain/permissions/usecase/open_settings_use_case.d
 import 'package:wheather_app/domain/permissions/usecase/request_location_permission_on_android_use_case.dart';
 import 'package:wheather_app/domain/permissions/usecase/request_location_permissions_use_case.dart';
 import 'package:wheather_app/presentation/pages/settings/cubit/settings_page_state.dart';
+import 'package:wheather_app/utils/safety_cubit.dart';
 
 @injectable
-class SettingsPageCubit extends Cubit<SettingsPageState> {
+class SettingsPageCubit extends WeatherAppCubit<SettingsPageState> {
   late bool isLocationGranted;
 
   final OpenSettingsUseCase _openSettingsUseCase;
@@ -32,9 +33,7 @@ class SettingsPageCubit extends Cubit<SettingsPageState> {
   Future<void> onPermissionButtonTap() async {
     Platform.isIOS ? await _requestPermissionsOnIOS() : await _requestPermissionsOnAndroid();
 
-    if (!isClosed) {
-      await _checkPermissionStatus();
-    }
+    await _checkPermissionStatus();
   }
 
   Future<void> onPermissionsGrantedIconTap() async {

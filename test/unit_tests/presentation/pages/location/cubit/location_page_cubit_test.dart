@@ -1,3 +1,4 @@
+import 'package:bloc_test/bloc_test.dart';
 import 'package:flutter_test/flutter_test.dart';
 import 'package:location/location.dart';
 import 'package:mockito/annotations.dart';
@@ -70,17 +71,24 @@ void main() {
       _getWeatherByCordsUseCase,
       _requestLocationPermissionOnAndroidUseCase,
     );
-
-    when(_openSettingsUseCase()).thenAnswer((_) => Future.value(true));
-    when(_isLocationPermissionsGrantedUseCase()).thenAnswer((_) => Future.value(true));
-    when(_isLocationPermissionsPermanentlyDeniedUseCase()).thenAnswer((_) => Future.value(null));
-    when(_getLocationDataUseCase()).thenAnswer((_) => Future.value(locationData));
-    when(_getWeatherByCordsUseCase(lat, lon)).thenAnswer((_) => Future.value(weather));
-
-    when(_requestLocationPermissionOnAndroidUseCase()).thenAnswer((_) => Future.value(true));
-
-    when(_requestLocationPermissionsUseCase()).thenAnswer((realInvocation) => Future.value(null));
   });
 
   test("has initial state", () => expect(cubit.state, const LocationPageState.inital()));
+
+  group("LocationPageCubit init tests.", () {
+    blocTest(
+      "Emits loaded state on init.",
+      setUp: () {
+        when(_isLocationPermissionsGrantedUseCase()).thenAnswer((_) => Future.value(true));
+        when(_getLocationDataUseCase()).thenAnswer((_) => Future.value(locationData));
+        when(_getWeatherByCordsUseCase(lat, lon)).thenAnswer((_) => Future.value(weather));
+      },
+      build: () => cubit,
+      act: (LocationPageCubit cubit) => cubit.init(),
+      expect: () => [
+        const LocationPageState.loading(),
+        const LocationPageState.loaded(weather: weather),
+      ],
+    );
+  });
 }

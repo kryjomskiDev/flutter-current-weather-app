@@ -5,6 +5,7 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:provider/provider.dart';
 import 'package:wheather_app/generated/l10n.dart';
 import 'package:wheather_app/presentation/router/router.gr.dart';
+import 'package:wheather_app/style/app_typography.dart';
 import 'package:wheather_app/style/themes.dart';
 import 'package:wheather_app/utils/hide_keyboard.dart';
 
@@ -42,6 +43,7 @@ class WeatherApp extends StatelessWidget {
                   textSelectionTheme: TextSelectionThemeData(
                     selectionHandleColor: context.getColors().mainColor,
                   ),
+                  fontFamily: AppTypography.fontFamily,
                   colorScheme: const ColorScheme.light(),
                   scaffoldBackgroundColor: context.getColors().bgColor,
                 ),

@@ -1,6 +1,5 @@
 import 'dart:io';
 
-import 'package:bloc/bloc.dart';
 import 'package:fimber_io/fimber_io.dart';
 import 'package:injectable/injectable.dart';
 import 'package:wheather_app/domain/permissions/usecase/is_location_permissions_granted_use_case.dart';
@@ -11,9 +10,10 @@ import 'package:wheather_app/domain/permissions/usecase/request_location_permiss
 import 'package:wheather_app/domain/location/usecase/get_location_data_use_case.dart';
 import 'package:wheather_app/domain/weather/usecase/get_weather_by_cords_use_case.dart';
 import 'package:wheather_app/presentation/pages/location/cubit/location_page_state.dart';
+import 'package:wheather_app/utils/safety_cubit.dart';
 
 @injectable
-class LocationPageCubit extends Cubit<LocationPageState> {
+class LocationPageCubit extends WeatherAppCubit<LocationPageState> {
   late bool _isLocationGranted;
 
   final OpenSettingsUseCase _openSettingsUseCase;
@@ -35,7 +35,6 @@ class LocationPageCubit extends Cubit<LocationPageState> {
   ) : super(const LocationPageState.inital());
 
   Future<void> init() async {
-    emit(const LocationPageState.loading());
     await _handleLocationPermissions();
     if (!_isLocationGranted) {
       await requestLocationPermissions();
@@ -62,35 +61,29 @@ class LocationPageCubit extends Cubit<LocationPageState> {
     }
     await _handleLocationPermissions();
     if (!_isLocationGranted) {
-      emit(const LocationPageState.permissionsNotGranted());
+      emit(const LocationPageState.error());
     }
   }
 
   Future<void> onReloadTap() async {
     await requestLocationPermissions();
 
-    _isLocationGranted ? await getWeather() : emit(const LocationPageState.permissionsNotGranted());
+    _isLocationGranted ? await getWeather() : emit(const LocationPageState.error());
   }
 
   Future<void> getWeather() async {
     try {
-      if (!isClosed) {
-        emit(const LocationPageState.loading());
-      }
+      emit(const LocationPageState.loading());
+
       final location = await _getLocationDataUseCase.call();
 
-      if (location.latitude != null && location.longitude != null) {
-        final weather = await _getWeatherByCordsUseCase.call(location.latitude!, location.longitude!);
-        if (!isClosed) {
-          emit(LocationPageState.loaded(weather: weather));
-        }
-      }
+      final weather = await _getWeatherByCordsUseCase.call(location.latitude ?? 20.00, location.longitude ?? 20.00);
+
+      emit(LocationPageState.loaded(weather: weather));
     } catch (error, st) {
       Fimber.e('Error during getting weather', ex: error, stacktrace: st);
-      //TODO: REFACTOR
-      if (!isClosed) {
-        emit(const LocationPageState.permissionsNotGranted());
-      }
+
+      emit(const LocationPageState.error());
     }
   }
 }

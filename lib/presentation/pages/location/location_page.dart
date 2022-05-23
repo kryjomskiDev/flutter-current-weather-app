@@ -34,7 +34,7 @@ class LocationPage extends StatelessWidget implements AutoRouteWrapper {
 
   Widget _builder(BuildContext context, LocationPageState state) => state.maybeWhen(
         loading: () => const AppLoadingSpinner(),
-        permissionsNotGranted: () => _getPermissionNotGrantedWidget(context),
+        error: () => _getErrorWidget(context),
         loaded: (weather) => PageBodyTemplate(
           weather: weather,
           infoWidget: const SizedBox.shrink(),
@@ -42,7 +42,7 @@ class LocationPage extends StatelessWidget implements AutoRouteWrapper {
         orElse: () => const SizedBox.shrink(),
       );
 
-  Widget _getPermissionNotGrantedWidget(BuildContext context) => Center(
+  Widget _getErrorWidget(BuildContext context) => Center(
         child: WeatherInfoCard(
           showErrorBody: true,
           onReloadButtonTap: context.read<LocationPageCubit>().onReloadTap,

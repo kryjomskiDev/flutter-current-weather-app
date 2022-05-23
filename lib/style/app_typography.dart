@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 class AppTypography {
-  static const fontFamily = '';
+  static const fontFamily = 'RobotoFlex';
 
   static final title = TextStyle(
     fontSize: 32.sp,

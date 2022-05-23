@@ -28,8 +28,6 @@ void main() {
   setUp(() {
     _getWeatherByCityNameUseCase = MockGetWeatherByCityNameUseCase();
     cubit = SearchPageCubit(_getWeatherByCityNameUseCase);
-
-    when(_getWeatherByCityNameUseCase(cityName)).thenAnswer((_) => Future.value(null));
   });
 
   test("Has initail loaded state.", () => expect(cubit.state, const SearchPageState.loaded()));
