@@ -1,5 +1,5 @@
 // DO NOT EDIT. This is code generated via package:intl/generate_localized.dart
-// This is a library that provides messages for a en locale. All the
+// This is a library that provides messages for a pl locale. All the
 // messages from the main program should be duplicated here with the same
 // function name.
 
@@ -18,36 +18,31 @@ final messages = new MessageLookup();
 typedef String MessageIfAbsent(String messageStr, List<dynamic> args);
 
 class MessageLookup extends MessageLookupByLibrary {
-  String get localeName => 'en';
+  String get localeName => 'pl';
 
-<<<<<<< HEAD
-  final messages = _notInlinedMessages(_notInlinedMessages);
-  static Map<String, Function> _notInlinedMessages(_) => <String, Function>{};
-=======
-  static String m0(location) => "Current Weather In ${location}";
+  static String m0(location) => "Aktualna Pogoda W ${location}";
 
   final messages = _notInlinedMessages(_notInlinedMessages);
   static Map<String, Function> _notInlinedMessages(_) => <String, Function>{
-        "about": MessageLookupByLibrary.simpleMessage("About"),
+        "about": MessageLookupByLibrary.simpleMessage("O nas"),
         "about_descripiton": MessageLookupByLibrary.simpleMessage(
-            "Get weather for your current location or by searching by city name"),
-        "allow": MessageLookupByLibrary.simpleMessage("Allow"),
+            "Sprawdź pogodę dla swojej aktualnej lokalizacji lub wyszukując według nazwy miasta"),
+        "allow": MessageLookupByLibrary.simpleMessage("Zezwól"),
         "current_weather": m0,
-        "hello": MessageLookupByLibrary.simpleMessage("Hello!"),
+        "hello": MessageLookupByLibrary.simpleMessage("Cześć!"),
         "location_permissions":
-            MessageLookupByLibrary.simpleMessage("Location Permissions"),
+            MessageLookupByLibrary.simpleMessage("Uprawnienia do lokalizacji"),
         "open_weather_api":
             MessageLookupByLibrary.simpleMessage("Open Weather API"),
-        "permissions": MessageLookupByLibrary.simpleMessage("Permissions"),
+        "permissions": MessageLookupByLibrary.simpleMessage("Uprawnienia"),
         "permissions_already_granted":
-            MessageLookupByLibrary.simpleMessage("Already granted!"),
+            MessageLookupByLibrary.simpleMessage("Już przyznane!"),
         "powered_by": MessageLookupByLibrary.simpleMessage("Powered By"),
         "search_page_error_message": MessageLookupByLibrary.simpleMessage(
-            "Error occured. Make sure you enter the correct city name."),
+            "Wystąpił błąd. Upewnij się, że podałeś prawidłową nazwę miasta."),
         "search_page_tap_on_top_info": MessageLookupByLibrary.simpleMessage(
-            "Tap on top to search weather for chosen city."),
-        "settings": MessageLookupByLibrary.simpleMessage("Settings"),
-        "try_again": MessageLookupByLibrary.simpleMessage("Try again")
+            "Kliknj u góry, by wyszukać pogodę dla wybranego miasta."),
+        "settings": MessageLookupByLibrary.simpleMessage("Ustawienia"),
+        "try_again": MessageLookupByLibrary.simpleMessage("Spróbuj Ponownie")
       };
->>>>>>> parent of 201042e (Merge pull request #8 from kryjomskiDev/feature/code-review)
 }
